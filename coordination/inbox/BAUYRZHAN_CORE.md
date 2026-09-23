@@ -4,7 +4,7 @@
 - Revision: 1
 - Role: BAUYRZHAN_CORE
 - Task: T-04
-- State: ready
+- State: accepted
 - Working-branch: feat/T-04-bauyrzhan-strategy
 - Target-commit: 2dd427779d27da07bdccc52632f78e0e1b092e39
 - Reply-path: strategy/reports/B1-002-r1.md
@@ -35,3 +35,8 @@ penalty=1.0 повторять не нужно. Новая команда опе
 Owned paths: strategy/**, coordination/tasks/T-04.md. Чужой код не менять.
 Первый аккаунт запускается вручную оператором, пока инструмент расписания
 недоступен. После needs_review ждать новой revision или CONTROL stop.
+
+Приёмка: 824b4c9 принят, публичный риск целевым запуском координатора подтверждён;
+production сохранить. Merge a7d9dac сохраняет авторство. B1-002/r1 завершено,
+не повторять. CONTROL stop имеет приоритет: итоговый STOP-отчёт и правдивое
+подтверждение состояния/удаления собственных расписаний по MAILBOX.

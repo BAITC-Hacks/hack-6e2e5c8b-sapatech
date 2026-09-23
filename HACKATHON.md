@@ -4,7 +4,7 @@ Last updated: 2026-09-23
 
 ## Current decision
 
-- **Status:** T-03/T-04 integrated; T-05 checks and Windows README accepted through d87b223; clean dependency-install review B2-002 accepted at d79c6dd; bounded seed21 risk review B1-002 pending.
+- **Status:** technical deliverable ready; T-04/T-05 and B1-002/B2-002 accepted; final submission.csv generated and verified. CONTROL stop / STOP-20260923-1513-T03; awaiting final reports and scheduler-deletion confirmations. Not submitted to the platform.
 - **Track:** 04 Telecommunications.
 - **Case owner:** Beeline.
 - **Official case:** Beeline Tariff Marketing Campaigns Case.
@@ -70,16 +70,20 @@ The no-action baseline in the supplied package is `150,641,084`, calculated as t
 
 ## Mandatory acceptance criteria
 
-- [ ] Root-level `agent.py` defines `Agent.act(env)` and imports without errors.
-- [ ] `python local_eval.py` completes successfully.
-- [ ] The agent conducts at least one pilot through `env.run_pilot(...)`.
-- [ ] Pilot observations affect the final campaign choice.
-- [ ] The returned list contains 1-10 campaigns using valid tariffs and channels.
-- [ ] No campaign is rejected by the evaluator sanitizer.
-- [ ] Budget, contact, pilot, and per-campaign limits are respected.
-- [ ] `python make_submission.py` creates a reproducible `submission.csv`.
-- [ ] `python local_eval.py --runs 10` shows the strategy's variance across seeds.
-- [ ] The repository contains clear launch, validation, data, and limitation documentation.
+- [x] Root-level `agent.py` defines `Agent.act(env)` and imports without errors.
+- [x] `python local_eval.py` completes successfully.
+- [x] The agent conducts at least one pilot through `env.run_pilot(...)`.
+- [x] Pilot observations affect the final campaign choice.
+- [x] The returned list contains 1-10 campaigns using valid tariffs and channels.
+- [x] No campaign is rejected by the evaluator sanitizer.
+- [x] Budget, contact, pilot, and per-campaign limits are respected.
+- [x] `python make_submission.py` creates a reproducible `submission.csv`.
+- [x] `python local_eval.py --runs 10` shows the strategy's variance across seeds.
+- [x] The repository contains clear launch, validation, data, and limitation documentation.
+
+Acceptance evidence is recorded in coordination/RECEIPTS.md and the T-04/T-05
+reports. Final CSV matches the previously verified seed42 hash. This is technical
+readiness, not a claim of hidden-score performance or platform acceptance.
 
 ## Output schema
 
@@ -305,10 +309,10 @@ The agent must still complete successfully when the optional API call fails.
 - **Official repository:** `BAITC-Hacks/hack-6e2e5c8b-sapatech`
 - **Stable branch:** `main`
 - **Official initial commit:** `e1a99ae3d47398c67fdc9c4849e983e487a4fb71`
-- **Current phase:** T-03 implementation
+- **Current phase:** technical implementation complete; collecting STOP confirmations
 - **Working now:** integrated strategy, pilot orchestration and independent verification
 - **Implementation handoff:** see `PLAN.md` and named instructions in `coordination/people/`; Бауыржан can start from first T-02 commit `580f1eb`.
-- **Pending dependencies:** B1-002 risk review, final artifact completeness, and team stop acknowledgements. Cap semantics, short actual pilots, Windows README, B2-001/r1 and macOS exact-dependency setup B2-002/r1 are accepted. Platform submission requires a separate operator instruction.
+- **Pending dependencies:** three final STOP reports and scheduler-deletion confirmations. Technical reviews and final artifact checks are complete. Platform submission requires a separate operator instruction.
 
 ## Current priorities
 
