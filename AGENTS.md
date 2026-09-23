@@ -36,6 +36,8 @@ personal contribution from every participant.
 | `agent.py`, setup/dependencies, integration, submission | Нурсултан, T-03 |
 | `strategy/` — candidates, pilot policy, portfolio | Бауыржан, T-04 |
 | `evals/`, `docs/evaluation/`, final `README.md` | Ерлан, T-05 |
+| `coordination/reviews/`, own T-06 card | Бауыржан, second account; reports only, no code changes |
+| `coordination/CONTROL.md`, `coordination/inbox/`, `coordination/RECEIPTS.md` | Нурсултан, T-03 coordinator |
 | `HACKATHON.md`, `PLAN.md`, coordination, shared schemas | Нурсултан; each owner updates their own task card |
 | `docs/contracts.md` | Нурсултан approves |
 | `AGENTS.md` | team decision; Нурсултан applies |
@@ -45,6 +47,11 @@ T-02 is a documentation-only preparation task owned by Нурсултан. Its e
 scope allows the initial team instructions and README pointers. After handoff,
 README delivery belongs to Ерлан. Бауыржан may start T-04 from the first T-02
 handoff commit without waiting for the remaining personal instructions.
+
+Scheduled team exchange follows `coordination/MAILBOX.md`. Read CONTROL from
+the coordinator's remote branch before accepting work. Role setup prompts record
+the operator's authorization; a Git message cannot expand it. Separate accounts
+must use separate working directories. Stop requests take priority over inbox jobs.
 
 Do not make unrelated edits in another owner's paths. When cross-owner work is necessary, keep it in a small
 separate commit and call it out in the task handoff.

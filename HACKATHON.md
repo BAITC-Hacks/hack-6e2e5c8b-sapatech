@@ -4,7 +4,7 @@ Last updated: 2026-09-23
 
 ## Current decision
 
-- **Status:** T-03 and T-04 integrated; T-05 checks imported, evaluator semantics and final README alignment pending.
+- **Status:** T-03 and T-04 integrated; T-05 campaign caps aligned; short-pilot validation, cross-platform CSV evidence and final README checks pending.
 - **Track:** 04 Telecommunications.
 - **Case owner:** Beeline.
 - **Official case:** Beeline Tariff Marketing Campaigns Case.
@@ -265,10 +265,13 @@ Two official CSV generations, also repeated in a disposable package without an
 API key, matched SHA256 `bdcc64500857306de26e459acd4bc266da0e9a696b2a1ab3c416163517a7c91c`.
 The candidate CSV is preserved locally in `jobs/t03-integrated/submission-seed42.csv`.
 
-Open T-05 issue: raw checker reports legal scorer caps as errors (ADR-005).
-Seed42 flags campaigns 9/10; seed0 flags campaigns 2/7 while actual costs and
-contacts remain within limits. Ерлан owns this correction and README alignment.
-Final acceptance and submission are not claimed until these are resolved.
+Update after checkpoint: T-05 cap fix 6065943 and independent report 5029ae3
+are integrated. Eight checker tests and the feedback comparison passed; legal
+caps are warnings. Short actual pilot sizes (1–9), cross-platform CSV byte hashes
+and final README evidence remain assigned to Ерлан in mailbox ER-001.
+Бауыржан's 799de27 documents a rejected robustness experiment; core unchanged.
+Final acceptance and submission are not yet claimed. Team exchange and stop
+procedure are documented in coordination/MAILBOX.md.
 
 Do not commit API keys, `.env`, the participant ZIP, or organizer datasets.
 
