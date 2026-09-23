@@ -6,10 +6,12 @@
 вычета стоимости контактов. Эти данные не описывают реальных клиентов или
 показатели Beeline.
 
-**Состояние этой ветки:** независимые проверки T-05 готовы. Интегрированный
-код агента `9f782f1`/`7c27cfe` проверен в отдельной локальной копии, без
-переноса `agent.py` и `strategy/` в ветку T-05. Итоговый общий
-`submission.csv` остаётся ответственностью Нурсултана.
+**Состояние проекта:** в ветке Нурсултана `feat/T-03-nursultan-agent`
+объединены `agent.py`, `strategy/` и проверки T-05 (merge `dca1954` с
+сохранением авторства). В этой рабочей ветке Ерлана находятся только его
+проверки и документация; команды полного проекта запускаются из
+интегрированной ветки. Общий `submission.csv` и сдача на платформе остаются
+ответственностью Нурсултана; публикация Git-коммита сама по себе не сдача.
 
 ## Основной сценарий
 
@@ -22,8 +24,8 @@
 Ограничения: 1–10 финальных кампаний, до 5 000 абонентов в каждой, всего до
 15 000 контактов и 100 000 у.е.; до 20 пилотов с запросом 10–200 человек.
 Фактический охват пилота может быть 1–9 после ограничения аудиторией или
-ресурсами. Каналы:
-`push`, `sms`, `digital_ads`, `call`. Время исполнения агента планируется
+ресурсами. Каналы: `push`, `sms`, `digital_ads`, `call`.
+Время исполнения агента планируется
 меньше пяти минут при абсолютном пределе кейса в десять минут.
 
 Компоненты по [контракту команды](docs/contracts.md):
@@ -43,7 +45,31 @@
 добавляются в Git. Для локального пути нужны Python, pandas и numpy; внешнее
 API и GPU для базовой стратегии не требуются.
 
-## Проверка опубликованных файлов T-05
+## Проверка интегрированного проекта
+
+Требуются Python, pandas и numpy, а также **отдельная локальная копия**
+официального пакета с `agent.py` и `strategy/` из интегрированной ветки.
+Оригинал пакета и общий `submission.csv` не перезаписывайте. Из корня
+интегрированного клона, заменив `<staged>` и `<package>` локальными путями:
+
+```text
+python -m unittest evals.test_contract_checks -v
+python evals/check_agent.py --agent <staged>/agent.py --package <staged> --seed 42
+python evals/check_agent.py --agent <staged>/agent.py --package <staged> --feedback-check
+python evals/check_submission.py --package <package> --agent <staged>/agent.py --strategy <staged>/strategy
+```
+
+Эти команды фактически исполнены на macOS с интегрированным исполняемым
+кодом `7c27cfe`: 9/9 тестов, raw-check без ошибок, pilot feedback меняет
+кампании, два CSV идентичны. Полное сравнение на одинаковых seed 0–9
+публиковалось ранее: 9/10 положительных mock-результатов, средний net ARPU
+533 014.48. Это не прогноз hidden judge; после документальных коммитов
+полный multi-seed без изменения агента/ядра не повторяли. Доказательства:
+[интеграционный отчёт](docs/evaluation/integrated-f95a8e3.md),
+[повторная проверка](docs/evaluation/recheck-9f782f1.md),
+[ER-001](docs/evaluation/ER-001-r2.md).
+
+## Официальный template как baseline
 
 Из корня репозитория, заменив `<package>` путём к распакованному архиву:
 
@@ -53,22 +79,6 @@ python evals/check_agent.py --agent <package>/agent_template.py --package <packa
 python evals/check_agent.py --agent <package>/agent_template.py --package <package> --feedback-check
 python evals/compare_agents.py --baseline-agent <package>/agent_template.py --candidate-agent <package>/agent_template.py --package <package> --runs 10
 python evals/check_submission.py --package <package> --agent <package>/agent_template.py
-```
-
-Для опубликованной интеграции те же проверки выполнены с
-`<staged>/agent.py` и `strategy/` в отдельной копии пакета. Точные команды,
-коммиты и измерения приведены в [первом отчёте](docs/evaluation/integrated-f95a8e3.md)
-и [повторной проверке `9f782f1`](docs/evaluation/recheck-9f782f1.md).
-
-Фактически проверенные команды для интегрированного кода на macOS (подставьте
-свои пути; `<staged>` — отдельная копия официального пакета с агентом и
-стратегией, `<package>` — исходный пакет вне Git):
-
-```text
-python -m unittest evals.test_contract_checks -v
-python evals/check_agent.py --agent <staged>/agent.py --package <staged> --seed 42
-python evals/check_agent.py --agent <staged>/agent.py --package <staged> --feedback-check
-python evals/check_submission.py --package <package> --agent <staged>/agent.py --strategy <staged>/strategy
 ```
 
 Два CSV совпадают внутри macOS. В ER-001 проверено: SHA-256 Windows-файла,
@@ -84,51 +94,55 @@ LF на CRLF. Содержание и порядок строк при этой 
 кампаний, хотя evaluator продолжает считать проведённые пилоты.
 Агрегированные результаты записаны в
 [baseline-отчёте](docs/evaluation/baseline.md).
-Результаты командной интеграции и конкретные предупреждения — в
-[отчёте `f95a8e3`](docs/evaluation/integrated-f95a8e3.md).
-Черновой [пятиминутный демо-сценарий](docs/evaluation/demo.md) заменяет
-заполнители только после проверки интегрированного коммита.
+Готов [пятиминутный демо-сценарий](docs/evaluation/demo.md). Для показа нужно
+взять проверенные метрики из отчётов выше; фактический публичный показ ещё не
+подтверждён.
 
-## Подготовка итогового запуска в PowerShell
+## Проверенный запуск в PowerShell (Windows)
 
-Ниже **непроверенный на Windows** пример для интегрированной командной ветки.
-Из корня её клона укажите локальный путь к распакованному официальному пакету.
-Сначала создаётся отдельная копия, чтобы не изменять исходный пакет:
+Нурсултан выполнил на Windows Python 3.12.14, pandas 3.0.1, numpy 2.3.5:
+9/9 тестов, raw-check seed 42, feedback-check, две генерации CSV,
+`local_eval.py` и `make_submission.py` — все с exit 0. Подтверждённые
+команды и хеши записаны в [RECEIPTS на коммите `2dd4277`](https://github.com/BAITC-Hacks/hack-6e2e5c8b-sapatech/blob/2dd4277/coordination/RECEIPTS.md).
+Из корня интегрированного клона задайте путь к **уже установленному**
+`python.exe` и распакованному официальному пакету; `$C` — отдельная копия.
+Имена переменных и временный путь адаптированы для повторения, а сами
+Python-вызовы сверены с RECEIPTS:
 
 ```powershell
-$Repo = (Get-Location).Path
+$R = (Get-Location).Path
+$P = 'C:\path\to\existing\python.exe'
 $SourceCase = 'C:\path\to\beeline_case_participants'
-$Case = Join-Path $env:TEMP ("beeline-t05-" + [guid]::NewGuid().ToString('N'))
-Copy-Item -LiteralPath $SourceCase -Destination $Case -Recurse
-py -3 -m venv "$Repo\.venv"
-$Python = "$Repo\.venv\Scripts\python.exe"
-& $Python -m pip install pandas numpy
-& $Python -m unittest evals.test_contract_checks -v
-& $Python "$Repo\evals\check_agent.py" --agent "$Repo\agent.py" --package "$Case" --seed 42
-& $Python "$Repo\evals\compare_agents.py" --baseline-agent "$Case\agent_template.py" --candidate-agent "$Repo\agent.py" --package "$Case" --runs 10
-& $Python "$Repo\evals\check_submission.py" --package "$SourceCase" --agent "$Repo\agent.py" --strategy "$Repo\strategy"
+$C = Join-Path $env:TEMP ("beeline-t05-" + [guid]::NewGuid().ToString('N'))
+Copy-Item -LiteralPath $SourceCase -Destination $C -Recurse
+& $P -m unittest evals.test_contract_checks -v
+& $P evals/check_agent.py --agent "$R/agent.py" --package $C --seed 42
+& $P evals/check_agent.py --agent "$R/agent.py" --package $C --feedback-check
+& $P evals/check_submission.py --package $C --agent "$R/agent.py" --strategy "$R/strategy"
 ```
 
-Для официальных команд скопируйте собственный код в `$Case`. Не
-перезаписывайте рабочие файлы других участников и их финальный `submission.csv`:
+Нурсултан использовал конкретный `python.exe` из своей локальной среды; его
+машинный путь в RECEIPTS не обязателен для других компьютеров. Для запуска
+официальных команд скопируйте собственный код только в `$C`:
 
 ```powershell
-Copy-Item "$Repo\agent.py" "$Case\agent.py" -Force
-New-Item -ItemType Directory -Path "$Case\strategy" -Force | Out-Null
-Copy-Item "$Repo\strategy\*" "$Case\strategy" -Recurse -Force
-Push-Location $Case
+Copy-Item "$R\agent.py" "$C\agent.py" -Force
+New-Item -ItemType Directory -Path "$C\strategy" -Force | Out-Null
+Copy-Item "$R\strategy\*" "$C\strategy" -Recurse -Force
+Push-Location $C
 try {
-    & $Python local_eval.py
-    & $Python local_eval.py --runs 10
-    & $Python make_submission.py
+    & $P local_eval.py
+    & $P make_submission.py
 } finally {
     Pop-Location
 }
 ```
 
-PowerShell в текущем окружении отсутствует, поэтому эти Windows-команды пока
-не отмечены как исполненные. Эквивалентные Python-вызовы проверены на macOS;
-перед сдачей нужно повторить чистый запуск на Windows-машине команды.
+На машине Ерлана PowerShell недоступен, поэтому Windows-результаты выше —
+свидетельства Нурсултана, а не мои прогоны. Создание venv, `py -3`,
+`pip install` и `local_eval.py --runs 10` в описанном Windows-сеансе **не
+исполнялись**; установка Python и зависимостей остаётся общей инструкцией,
+не подтверждённой этим тестом.
 
 ## Интерпретация результата
 
