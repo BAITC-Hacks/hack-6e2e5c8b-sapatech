@@ -4,7 +4,7 @@ Last updated: 2026-09-23
 
 ## Current decision
 
-- **Status:** T-03 and T-04 integrated; T-05 campaign caps aligned; short-pilot validation, cross-platform CSV evidence and final README checks pending.
+- **Status:** T-03 and T-04 integrated; T-05 campaign caps aligned; CSV difference explained by line endings; short-pilot validation and final README checks pending.
 - **Track:** 04 Telecommunications.
 - **Case owner:** Beeline.
 - **Official case:** Beeline Tariff Marketing Campaigns Case.
@@ -267,8 +267,10 @@ The candidate CSV is preserved locally in `jobs/t03-integrated/submission-seed42
 
 Update after checkpoint: T-05 cap fix 6065943 and independent report 5029ae3
 are integrated. Eight checker tests and the feedback comparison passed; legal
-caps are warnings. Short actual pilot sizes (1–9), cross-platform CSV byte hashes
-and final README evidence remain assigned to Ерлан in mailbox ER-001.
+caps are warnings. Short actual pilot sizes (1–9) and final README evidence
+remain assigned to Ерлан in mailbox ER-001 revision 2. Windows CSV normalized
+from CRLF to LF exactly matches Ерлан's macOS SHA256; no algorithm divergence
+was found in these artifacts. Evidence is in coordination/RECEIPTS.md.
 Бауыржан's 799de27 documents a rejected robustness experiment; core unchanged.
 Final acceptance and submission are not yet claimed. Team exchange and stop
 procedure are documented in coordination/MAILBOX.md.
