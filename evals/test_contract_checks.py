@@ -67,7 +67,7 @@ class RawContractTests(unittest.TestCase):
         env.run_pilot("tariff_2", "push", 10)
         result = check_raw_answer([one_campaign(channel="call")], env)
         self.assertFalse(result.ok)
-        self.assertTrue(any("truncated" in e for e in result.errors))
+        self.assertTrue(any("no contacts" in e for e in result.errors))
 
         env = sample_env()
         env.run_pilot("tariff_2", "push", 10)
@@ -99,7 +99,7 @@ class RawContractTests(unittest.TestCase):
         env.max_total_contacts = env.remaining_contacts = 10
         env.run_pilot("tariff_2", "push", 10)
         exhausted = check_raw_answer([one_campaign()], env)
-        self.assertTrue(any("truncated" in e for e in exhausted.errors))
+        self.assertTrue(any("no contacts" in e for e in exhausted.errors))
 
     def test_zero_baseline_and_negative_pilot_observation(self):
         env = sample_env(observed_ratio=-0.4)
@@ -116,7 +116,8 @@ class RawContractTests(unittest.TestCase):
         env.customer_profile = expanded
         env.run_pilot("tariff_2", "push", 10)
         result = check_raw_answer([one_campaign(filter_arpu_segment=None)], env)
-        self.assertTrue(any("before the 5000 cap" in e for e in result.errors))
+        self.assertTrue(result.ok, result.errors)
+        self.assertTrue(any("before the 5000 cap" in w for w in result.warnings))
 
 
 if __name__ == "__main__":

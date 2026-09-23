@@ -94,6 +94,7 @@ def evaluate(path: Path, package_dir: Path, seeds: range) -> dict:
                 if row["agent_runtime_seconds"] is not None
             ) if any(row["agent_runtime_seconds"] is not None for row in rows) else None,
             "raw_error_runs": sum(bool(row["raw_errors"]) for row in rows),
+            "raw_warning_runs": sum(bool(row["raw_warnings"]) for row in rows),
             "warning_runs": sum(bool(row["warnings"]) for row in rows),
         },
     }
