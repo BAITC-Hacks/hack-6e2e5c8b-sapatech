@@ -4,7 +4,7 @@ Last updated: 2026-09-23
 
 ## Current decision
 
-- **Status:** technical deliverable ready; T-04/T-05 and B1-002/B2-002 accepted; final submission.csv generated and verified. CONTROL stop / STOP-20260923-1513-T03; awaiting final reports and scheduler-deletion confirmations. Not submitted to the platform.
+- **Status:** baseline 4272a07 published in main and preserved. Operator started T-08/T-09/T-10 after audit T-07; CONTROL revision3, manual coordination, no schedules. Delivery deadline 17:00 UTC+05; freeze 16:30. README/reproducibility take priority; replace strategy only after independent acceptance. Not submitted to the platform.
 - **Track:** 04 Telecommunications.
 - **Case owner:** Beeline.
 - **Official case:** Beeline Tariff Marketing Campaigns Case.
