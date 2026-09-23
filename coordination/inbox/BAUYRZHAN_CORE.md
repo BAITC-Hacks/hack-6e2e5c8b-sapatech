@@ -4,7 +4,7 @@
 - Revision: 1
 - Role: BAUYRZHAN_CORE
 - Task: T-04
-- State: ready
+- State: accepted
 - Working-branch: feat/T-04-bauyrzhan-strategy
 - Target-commit: 7c27cfe6a943ea468a69cf9c2b7d37feadceb58b
 - Reply-path: strategy/reports/B1-001-r1.md
@@ -32,3 +32,8 @@ seed0 3747 повторных контактов, seed42 371. Это само п
 Owned paths: strategy/**, coordination/tasks/T-04.md. Не менять agent.py, evals/,
 README корня или общий контракт. Нужные изменения другой области — findings
 владельцу. После needs_review ждать новой revision, не придумывать следующий опыт.
+
+Приёмка Нурсултаном: отчёт 344b09b принят, production-ядро сохранить без изменений.
+Задание B1-001/r1 завершено, повторно не выполнять. По отчёту инструмент расписания
+недоступен, автоматическая проверка не настроена; это отдельный организационный
+блокер, не причина повторять аудит. Новое содержательное задание пока не выдано.
