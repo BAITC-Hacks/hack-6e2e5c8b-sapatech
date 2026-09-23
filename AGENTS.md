@@ -29,15 +29,22 @@ personal contribution from every participant.
 
 ## Ownership
 
-Fill this table after the track is announced:
+Назначения для Beeline; подробные границы находятся в карточках задач.
 
 | Path or responsibility | Owner |
 |---|---|
-| `controller/`, `executor/` | PERSON_B |
-| `web/`, `demo_data/`, `evals/` | PERSON_C |
-| `deploy/`, integration, `HACKATHON.md` | PERSON_A |
-| `docs/contracts.md`, shared schemas | PERSON_A approves |
-| `AGENTS.md` | team decision; PERSON_A applies |
+| `agent.py`, setup/dependencies, integration, submission | Нурсултан, T-03 |
+| `strategy/` — candidates, pilot policy, portfolio | Бауыржан, T-04 |
+| `evals/`, `docs/evaluation/`, final `README.md` | Ерлан, T-05 |
+| `HACKATHON.md`, `PLAN.md`, coordination, shared schemas | Нурсултан; each owner updates their own task card |
+| `docs/contracts.md` | Нурсултан approves |
+| `AGENTS.md` | team decision; Нурсултан applies |
+| `controller/`, `executor/`, `web/`, `deploy/` | Frozen optional skeleton; outside current tasks |
+
+T-02 is a documentation-only preparation task owned by Нурсултан. Its explicit
+scope allows the initial team instructions and README pointers. After handoff,
+README delivery belongs to Ерлан. Бауыржан may start T-04 from the first T-02
+handoff commit without waiting for the remaining personal instructions.
 
 Do not make unrelated edits in another owner's paths. When cross-owner work is necessary, keep it in a small
 separate commit and call it out in the task handoff.

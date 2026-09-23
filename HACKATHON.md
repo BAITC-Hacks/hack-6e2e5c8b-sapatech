@@ -110,7 +110,7 @@ The participant package is currently stored locally outside the repository as:
 | File | Purpose |
 |---|---|
 | `customer_profile.csv` | Target audience: 23,441 subscribers, segments, behavior, current tariff, and `predicted_arpu` |
-| `data/change_tariff.csv` | 14,824 historical tariff changes with ARPU before and after |
+| `data/change_tariff.csv` | 14,823 data rows in the supplied local archive, with ARPU before and after |
 | `data/traffic.csv` | Monthly minutes, SMS, data traffic, and device behavior |
 | `data/arpu_monthly.csv` | Monthly subscriber revenue |
 | `data/dict_tariff.csv` | Parameters of 21 synthetic tariffs |
@@ -191,17 +191,17 @@ The exact relationship between the numeric net-result ranking and the 100-point 
 
 ## Team ownership
 
-Names must be filled in by the team before implementation starts. Each participant needs attributable commits and task evidence.
+Each participant needs attributable commits and task evidence. Internal interfaces are fixed in `docs/contracts.md` (ADR-003).
 
 | Role | Name | Primary responsibility |
 |---|---|---|
-| A - product lead and integrator | TBD | scope, constraints, integration, final submission, `HACKATHON.md` |
-| B - agent strategy owner | TBD | `agent.py`, candidate generation, pilots, budget guardrails |
-| C - evaluation and delivery owner | TBD | multi-seed evaluation, submission generation, README, demo evidence |
+| A - product lead and integrator | Нурсултан | `agent.py`, public env calls, setup, integration, final submission; T-03 |
+| B - strategy core owner | Бауыржан | `strategy/`: candidates, adaptive pilot policy, uncertainty and budget-aware portfolio; T-04 |
+| C - evaluation and delivery owner | Ерлан | `evals/`, multi-seed evaluation, reproducibility checks, README and demo evidence; T-05 |
 
 Do not squash all work into one participant's commit. Work on separate task branches and preserve each participant's contribution history.
 
-## Verified starter commands
+## Supplied starter commands (implementation not yet validated here)
 
 Run these commands only after the participant package has been copied or extracted into the local working directory. The supplied Python files import only `pandas` and `numpy`.
 
@@ -252,7 +252,7 @@ The agent must still complete successfully when the optional API call fails.
 
 ## Current priorities
 
-1. Confirm the three participant names and assign the strategy, evaluation, and integration owners.
+1. Start the named owners on T-03/T-04/T-05 using the shared contract. Бауыржан receives T-04 first.
 2. Confirm with the mentor whether raw case data may be stored in the private repository and clarify the 5/9-hour and 5/10-minute inconsistencies.
 3. Prepare a local-only starter workspace and run the unchanged template as a baseline.
 4. Implement a deterministic history-informed candidate generator.
