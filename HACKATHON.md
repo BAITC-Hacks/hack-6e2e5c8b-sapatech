@@ -4,7 +4,7 @@ Last updated: 2026-09-23
 
 ## Current decision
 
-- **Status:** official case selected; implementation has not started.
+- **Status:** T-03 started; official template baseline measured; strategy integration pending.
 - **Track:** 04 Telecommunications.
 - **Case owner:** Beeline.
 - **Official case:** Beeline Tariff Marketing Campaigns Case.
@@ -201,7 +201,33 @@ Each participant needs attributable commits and task evidence. Internal interfac
 
 Do not squash all work into one participant's commit. Work on separate task branches and preserve each participant's contribution history.
 
-## Supplied starter commands (implementation not yet validated here)
+## Local setup and measured baseline
+
+Python 3.12.14, pandas 3.0.1 and numpy 2.3.5 were used on Windows.
+Install the official ZIP locally; the installer preserves bytes and refuses to
+overwrite differing files. Official code and data are ignored by Git.
+
+```powershell
+python -m pip install -r requirements.txt
+python scripts/prepare_case.py "C:/path/to/beeline_case_participants.zip"
+python scripts/prepare_case.py "C:/path/to/beeline_case_participants.zip" --baseline
+Push-Location jobs/template_baseline
+python local_eval.py
+python local_eval.py --runs 10
+python make_submission.py
+Pop-Location
+```
+
+Measured unchanged template on 2026-09-23: seed 42 net **-1,035,279**, six
+pilots and two final campaigns, command wall time 0.89 seconds. Seeds 0–9:
+median **-357,948**, minimum **-1,019,431**, maximum **-76,493**, 0/10 positive.
+The evaluator ran successfully; its FAIL label reflects negative business gain.
+Two CSV generations had identical SHA256
+`613d7c12899e1f42b70a7def168fdacb01a3bccf75c21539ce549be36d529420`.
+Local logs: `jobs/t03-baseline/` (ignored). These are mock baseline results,
+not a prediction of hidden judging quality.
+
+## Original starter commands
 
 Run these commands only after the participant package has been copied or extracted into the local working directory. The supplied Python files import only `pandas` and `numpy`.
 
@@ -246,10 +272,10 @@ The agent must still complete successfully when the optional API call fails.
 - **Official repository:** `BAITC-Hacks/hack-6e2e5c8b-sapatech`
 - **Stable branch:** `main`
 - **Official initial commit:** `e1a99ae3d47398c67fdc9c4849e983e487a4fb71`
-- **Current phase:** case intake and implementation planning
-- **Working now:** project instructions and case contract
+- **Current phase:** T-03 implementation
+- **Working now:** local setup and measured official baseline; orchestration in progress
 - **Implementation handoff:** see `PLAN.md` and named instructions in `coordination/people/`; Бауыржан can start from first T-02 commit `580f1eb`.
-- **Not implemented:** starter kit import, `agent.py`, evaluation baseline, optimized strategy, submission artifact
+- **Not implemented:** integrated `agent.py`, optimized strategy, final submission artifact
 
 ## Current priorities
 

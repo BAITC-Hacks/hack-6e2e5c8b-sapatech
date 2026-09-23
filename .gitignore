@@ -28,3 +28,11 @@ jobs/*
 /tariff_dictionary.csv
 /feature_dictionary.csv
 /data/
+
+# Official Python kit is installed locally, unchanged, by scripts/prepare_case.py.
+/environment.py
+/mock_environment.py
+/scoring_core.py
+/local_eval.py
+/make_submission.py
+/agent_template.py
