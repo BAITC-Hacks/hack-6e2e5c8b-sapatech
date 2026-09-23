@@ -1,0 +1,40 @@
+test_actual_small_pilot_and_missing_history (scripts.test_agent.AgentTests.test_actual_small_pilot_and_missing_history) ... ok
+test_changed_public_pilot_changes_decision (scripts.test_agent.AgentTests.test_changed_public_pilot_changes_decision) ... ok
+test_default_history_uses_separate_official_package_directory (scripts.test_agent.AgentTests.test_default_history_uses_separate_official_package_directory) ... ok
+test_final_caps_and_repeated_contacts_charge_again (scripts.test_agent.AgentTests.test_final_caps_and_repeated_contacts_charge_again) ... ok
+test_invalid_requests_never_call_environment (scripts.test_agent.AgentTests.test_invalid_requests_never_call_environment) ... ok
+test_malformed_result_is_not_an_observation (scripts.test_agent.AgentTests.test_malformed_result_is_not_an_observation) ... ok
+test_observations_resources_and_history_reach_policy (scripts.test_agent.AgentTests.test_observations_resources_and_history_reach_policy) ... ok
+test_policy_mutation_cannot_change_validation_or_environment (scripts.test_agent.AgentTests.test_policy_mutation_cannot_change_validation_or_environment) ... ok
+test_preserves_final_contact_and_time_reserve (scripts.test_agent.AgentTests.test_preserves_final_contact_and_time_reserve) ... ok
+test_raw_final_output_not_silently_sanitized (scripts.test_agent.AgentTests.test_raw_final_output_not_silently_sanitized) ... ok
+test_repeated_policy_errors_stop_after_three (scripts.test_agent.AgentTests.test_repeated_policy_errors_stop_after_three) ... ok
+test_selection_error_recovers_from_observed_action (scripts.test_agent.AgentTests.test_selection_error_recovers_from_observed_action) ... ok
+test_actual_sample_size_and_failed_observations (strategy.tests.test_core.CoreTests.test_actual_sample_size_and_failed_observations) ... ok
+test_confirmation_after_exploration (strategy.tests.test_core.CoreTests.test_confirmation_after_exploration) ... ok
+test_empty_history_neutral_and_no_mutation (strategy.tests.test_core.CoreTests.test_empty_history_neutral_and_no_mutation) ... ok
+test_final_schema_and_determinism (strategy.tests.test_core.CoreTests.test_final_schema_and_determinism) ... ok
+test_full_pilot_loop_preserves_final_resources (strategy.tests.test_core.CoreTests.test_full_pilot_loop_preserves_final_resources) ... ok
+test_history_zero_denominators_and_finite_candidates (strategy.tests.test_core.CoreTests.test_history_zero_denominators_and_finite_candidates) ... ok
+test_id_order_and_campaign_cap_affect_selection (strategy.tests.test_core.CoreTests.test_id_order_and_campaign_cap_affect_selection) ... ok
+test_invalid_profile_diagnostic (strategy.tests.test_core.CoreTests.test_invalid_profile_diagnostic) ... ok
+test_missing_segment_and_zero_arpu (strategy.tests.test_core.CoreTests.test_missing_segment_and_zero_arpu) ... ok
+test_observations_change_target_and_research (strategy.tests.test_core.CoreTests.test_observations_change_target_and_research) ... ok
+test_overlap_not_counted_twice_and_negative_fallback (strategy.tests.test_core.CoreTests.test_overlap_not_counted_twice_and_negative_fallback) ... ok
+test_paid_channels_and_budget (strategy.tests.test_core.CoreTests.test_paid_channels_and_budget) ... ok
+test_pilot_limits_and_reserved_contacts (strategy.tests.test_core.CoreTests.test_pilot_limits_and_reserved_contacts) ... ok
+test_same_channel_pilot_not_multiplied_twice (strategy.tests.test_core.CoreTests.test_same_channel_pilot_not_multiplied_twice) ... ok
+test_audience_above_campaign_cap_is_reported (evals.test_contract_checks.RawContractTests.test_audience_above_campaign_cap_is_reported) ... ok
+test_empty_segment_and_exhausted_contacts (evals.test_contract_checks.RawContractTests.test_empty_segment_and_exhausted_contacts) ... ok
+test_feedback_changes_a_public_agent_decision (evals.test_contract_checks.RawContractTests.test_feedback_changes_a_public_agent_decision) ... ok
+test_final_budget_and_repeated_contacts (evals.test_contract_checks.RawContractTests.test_final_budget_and_repeated_contacts) ... ok
+test_invalid_filters_tariff_channel_and_unsupported_key (evals.test_contract_checks.RawContractTests.test_invalid_filters_tariff_channel_and_unsupported_key) ... ok
+test_raw_excess_is_not_hidden_by_sanitizer (evals.test_contract_checks.RawContractTests.test_raw_excess_is_not_hidden_by_sanitizer) ... ok
+test_short_actual_pilot_is_valid_but_short_request_is_not (evals.test_contract_checks.RawContractTests.test_short_actual_pilot_is_valid_but_short_request_is_not) ... ok
+test_valid_answer_with_zero_and_missing_arpu (evals.test_contract_checks.RawContractTests.test_valid_answer_with_zero_and_missing_arpu) ... ok
+test_zero_baseline_and_negative_pilot_observation (evals.test_contract_checks.RawContractTests.test_zero_baseline_and_negative_pilot_observation) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 0.090s
+
+OK

@@ -1,0 +1,60 @@
+{
+  "cases": [
+    {
+      "case": "normal",
+      "returned": true,
+      "campaigns": 10,
+      "pilots": 20,
+      "mode": "strategy",
+      "contract_errors": [],
+      "diagnostic_stages": []
+    },
+    {
+      "case": "missing_history",
+      "returned": true,
+      "campaigns": 3,
+      "pilots": 20,
+      "mode": "strategy",
+      "contract_errors": [],
+      "diagnostic_stages": [
+        "history"
+      ]
+    },
+    {
+      "case": "candidate_generation_failure",
+      "returned": true,
+      "campaigns": 2,
+      "pilots": 6,
+      "mode": "official-template",
+      "contract_errors": [],
+      "diagnostic_stages": [
+        "strategy"
+      ]
+    },
+    {
+      "case": "final_selection_failure",
+      "returned": true,
+      "campaigns": 1,
+      "pilots": 20,
+      "mode": "pilot-recovery",
+      "contract_errors": [],
+      "diagnostic_stages": [
+        "strategy"
+      ]
+    },
+    {
+      "case": "first_pilot_failure",
+      "returned": true,
+      "campaigns": 10,
+      "pilots": 20,
+      "mode": "strategy",
+      "contract_errors": [],
+      "diagnostic_stages": [
+        "pilot"
+      ]
+    }
+  ],
+  "reuse_same_instance_deterministic": true,
+  "network_or_process_attempts": [],
+  "instrumentation_note": "Transient wrapper uses functools.wraps to preserve official signature for capture_pilot_requests; prior generic kwargs wrapper caused checker-only false positives and was corrected."
+}

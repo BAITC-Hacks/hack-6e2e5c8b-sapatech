@@ -1,0 +1,1722 @@
+[
+  {
+    "seed": 0,
+    "net_arpu_gain": 631544.5787510785,
+    "total_cost": 100000.0,
+    "total_contacts": 14581,
+    "pilots": 20,
+    "runtime_seconds": 1.886,
+    "agent_runtime_seconds": 1.747,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 7 would be truncated by remaining resources",
+      "3747 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 1,
+    "net_arpu_gain": 608399.78980938,
+    "total_cost": 99988.0,
+    "total_contacts": 14514,
+    "pilots": 20,
+    "runtime_seconds": 1.972,
+    "agent_runtime_seconds": 1.829,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 10 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 2,
+    "net_arpu_gain": -282662.4424309815,
+    "total_cost": 99996.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.753,
+    "agent_runtime_seconds": 1.61,
+    "raw_campaign_count": 4,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 3 would be truncated by remaining resources",
+      "campaign 4 would be truncated by remaining resources"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 3,
+    "net_arpu_gain": 511289.8716445747,
+    "total_cost": 100000.0,
+    "total_contacts": 14453,
+    "pilots": 20,
+    "runtime_seconds": 2.052,
+    "agent_runtime_seconds": 1.9,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 10 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 4,
+    "net_arpu_gain": 559983.6022356469,
+    "total_cost": 100000.0,
+    "total_contacts": 9791,
+    "pilots": 20,
+    "runtime_seconds": 2.043,
+    "agent_runtime_seconds": 1.902,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 9 would be truncated by remaining resources",
+      "campaign 10 would be truncated by remaining resources"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 5,
+    "net_arpu_gain": 591846.430824003,
+    "total_cost": 100000.0,
+    "total_contacts": 11831,
+    "pilots": 20,
+    "runtime_seconds": 2.017,
+    "agent_runtime_seconds": 1.869,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 8 would be truncated by remaining resources"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 6,
+    "net_arpu_gain": 923874.8076997537,
+    "total_cost": 100000.0,
+    "total_contacts": 14453,
+    "pilots": 20,
+    "runtime_seconds": 1.983,
+    "agent_runtime_seconds": 1.836,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 10 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 7,
+    "net_arpu_gain": 943807.7992571924,
+    "total_cost": 98892.0,
+    "total_contacts": 5296,
+    "pilots": 20,
+    "runtime_seconds": 2.077,
+    "agent_runtime_seconds": 1.932,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [],
+    "warnings": []
+  },
+  {
+    "seed": 8,
+    "net_arpu_gain": 544438.7532036048,
+    "total_cost": 99354.0,
+    "total_contacts": 14535,
+    "pilots": 20,
+    "runtime_seconds": 2.034,
+    "agent_runtime_seconds": 1.886,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 9,
+    "net_arpu_gain": 297621.6496161537,
+    "total_cost": 100000.0,
+    "total_contacts": 12249,
+    "pilots": 20,
+    "runtime_seconds": 1.912,
+    "agent_runtime_seconds": 1.769,
+    "raw_campaign_count": 9,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 4 would be truncated by remaining resources",
+      "campaign 7 would be truncated by remaining resources",
+      "4 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 10,
+    "net_arpu_gain": 898371.2426094433,
+    "total_cost": 100000.0,
+    "total_contacts": 9791,
+    "pilots": 20,
+    "runtime_seconds": 2.097,
+    "agent_runtime_seconds": 1.941,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 9 would be truncated by remaining resources",
+      "campaign 10 would be truncated by remaining resources"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 11,
+    "net_arpu_gain": -63864.91669655888,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.794,
+    "agent_runtime_seconds": 1.663,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "2920 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 12,
+    "net_arpu_gain": -36980.26500338502,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.798,
+    "agent_runtime_seconds": 1.667,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 would be truncated by remaining resources",
+      "3054 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 13,
+    "net_arpu_gain": 760392.0673614682,
+    "total_cost": 99998.0,
+    "total_contacts": 14419,
+    "pilots": 20,
+    "runtime_seconds": 1.989,
+    "agent_runtime_seconds": 1.841,
+    "raw_campaign_count": 9,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 9 would be truncated by remaining resources"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 14,
+    "net_arpu_gain": 363059.0210917392,
+    "total_cost": 66376.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.744,
+    "agent_runtime_seconds": 1.624,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 15,
+    "net_arpu_gain": 149781.44640060037,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.698,
+    "agent_runtime_seconds": 1.58,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 16,
+    "net_arpu_gain": -30464.82166545895,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.699,
+    "agent_runtime_seconds": 1.579,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 would be truncated by remaining resources",
+      "3054 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 17,
+    "net_arpu_gain": 918838.4597094527,
+    "total_cost": 100000.0,
+    "total_contacts": 14920,
+    "pilots": 20,
+    "runtime_seconds": 2.031,
+    "agent_runtime_seconds": 1.881,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 9 would be truncated by remaining resources",
+      "campaign 10 would be truncated by remaining resources",
+      "3727 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 18,
+    "net_arpu_gain": 35457.2192091835,
+    "total_cost": 83804.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.756,
+    "agent_runtime_seconds": 1.637,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 3 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "2212 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 19,
+    "net_arpu_gain": 1002144.401117516,
+    "total_cost": 99694.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.983,
+    "agent_runtime_seconds": 1.842,
+    "raw_campaign_count": 8,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 8 reaches 6904 before the 5000 cap",
+      "campaign 8 would be truncated by remaining resources",
+      "1800 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 20,
+    "net_arpu_gain": 194136.24666114198,
+    "total_cost": 99998.0,
+    "total_contacts": 13334,
+    "pilots": 20,
+    "runtime_seconds": 1.799,
+    "agent_runtime_seconds": 1.662,
+    "raw_campaign_count": 7,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 5 would be truncated by remaining resources",
+      "3056 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 21,
+    "net_arpu_gain": -231184.70212326804,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.734,
+    "agent_runtime_seconds": 1.61,
+    "raw_campaign_count": 4,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 4 reaches 6904 before the 5000 cap",
+      "campaign 4 would be truncated by remaining resources",
+      "961 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 22,
+    "net_arpu_gain": 918107.7637799007,
+    "total_cost": 99998.0,
+    "total_contacts": 12913,
+    "pilots": 20,
+    "runtime_seconds": 2.027,
+    "agent_runtime_seconds": 1.882,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 9 would be truncated by remaining resources",
+      "345 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 23,
+    "net_arpu_gain": 570186.9895347389,
+    "total_cost": 100000.0,
+    "total_contacts": 12699,
+    "pilots": 20,
+    "runtime_seconds": 1.815,
+    "agent_runtime_seconds": 1.683,
+    "raw_campaign_count": 7,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 2 would be truncated by remaining resources",
+      "campaign 5 would be truncated by remaining resources",
+      "3638 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 24,
+    "net_arpu_gain": 837402.9529584493,
+    "total_cost": 99988.0,
+    "total_contacts": 14514,
+    "pilots": 20,
+    "runtime_seconds": 2.072,
+    "agent_runtime_seconds": 1.923,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 10 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 25,
+    "net_arpu_gain": 190657.79172898154,
+    "total_cost": 99998.0,
+    "total_contacts": 13334,
+    "pilots": 20,
+    "runtime_seconds": 1.812,
+    "agent_runtime_seconds": 1.67,
+    "raw_campaign_count": 7,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 5 would be truncated by remaining resources",
+      "4547 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 26,
+    "net_arpu_gain": 289829.1163936959,
+    "total_cost": 99998.0,
+    "total_contacts": 13608,
+    "pilots": 20,
+    "runtime_seconds": 1.813,
+    "agent_runtime_seconds": 1.677,
+    "raw_campaign_count": 7,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 5 would be truncated by remaining resources",
+      "3384 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 27,
+    "net_arpu_gain": 606875.8059614396,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.692,
+    "agent_runtime_seconds": 1.575,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "4545 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 28,
+    "net_arpu_gain": 71433.46834983578,
+    "total_cost": 100000.0,
+    "total_contacts": 14539,
+    "pilots": 20,
+    "runtime_seconds": 2.014,
+    "agent_runtime_seconds": 1.863,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 8 would be truncated by remaining resources"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 29,
+    "net_arpu_gain": -134501.20414561522,
+    "total_cost": 100000.0,
+    "total_contacts": 12249,
+    "pilots": 20,
+    "runtime_seconds": 1.929,
+    "agent_runtime_seconds": 1.782,
+    "raw_campaign_count": 9,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 4 would be truncated by remaining resources",
+      "campaign 7 would be truncated by remaining resources",
+      "4 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 30,
+    "net_arpu_gain": 531966.9852903937,
+    "total_cost": 66932.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.774,
+    "agent_runtime_seconds": 1.657,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 3 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "4656 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 31,
+    "net_arpu_gain": -6283.75458275275,
+    "total_cost": 99996.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.872,
+    "agent_runtime_seconds": 1.737,
+    "raw_campaign_count": 4,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 3 would be truncated by remaining resources",
+      "campaign 4 reaches 6904 before the 5000 cap",
+      "campaign 4 would be truncated by remaining resources",
+      "1750 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 32,
+    "net_arpu_gain": 324031.4748236777,
+    "total_cost": 99988.0,
+    "total_contacts": 12738,
+    "pilots": 20,
+    "runtime_seconds": 2.203,
+    "agent_runtime_seconds": 2.047,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 10 would be truncated by remaining resources"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 33,
+    "net_arpu_gain": 1292392.0825325577,
+    "total_cost": 89272.0,
+    "total_contacts": 14936,
+    "pilots": 20,
+    "runtime_seconds": 2.2,
+    "agent_runtime_seconds": 2.04,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 8 reaches 6904 before the 5000 cap",
+      "3727 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 34,
+    "net_arpu_gain": -27219.628122765353,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.787,
+    "agent_runtime_seconds": 1.653,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 would be truncated by remaining resources",
+      "3054 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 35,
+    "net_arpu_gain": -585009.7045337864,
+    "total_cost": 73394.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.831,
+    "agent_runtime_seconds": 1.707,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 36,
+    "net_arpu_gain": 1035531.8375608572,
+    "total_cost": 92768.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 2.066,
+    "agent_runtime_seconds": 1.912,
+    "raw_campaign_count": 8,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 4 reaches 6904 before the 5000 cap",
+      "campaign 8 would be truncated by remaining resources",
+      "345 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 37,
+    "net_arpu_gain": 495959.84125821805,
+    "total_cost": 99988.0,
+    "total_contacts": 14514,
+    "pilots": 20,
+    "runtime_seconds": 2.111,
+    "agent_runtime_seconds": 1.958,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 10 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 38,
+    "net_arpu_gain": 809530.2884811974,
+    "total_cost": 100000.0,
+    "total_contacts": 7116,
+    "pilots": 20,
+    "runtime_seconds": 2.057,
+    "agent_runtime_seconds": 1.902,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 7 would be truncated by remaining resources",
+      "10 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 39,
+    "net_arpu_gain": 494013.45561009704,
+    "total_cost": 100000.0,
+    "total_contacts": 12699,
+    "pilots": 20,
+    "runtime_seconds": 1.902,
+    "agent_runtime_seconds": 1.76,
+    "raw_campaign_count": 8,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 3 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "campaign 6 would be truncated by remaining resources",
+      "688 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 40,
+    "net_arpu_gain": 864954.1886358993,
+    "total_cost": 99988.0,
+    "total_contacts": 14514,
+    "pilots": 20,
+    "runtime_seconds": 2.095,
+    "agent_runtime_seconds": 1.945,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 10 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 41,
+    "net_arpu_gain": 938405.532663442,
+    "total_cost": 100000.0,
+    "total_contacts": 14920,
+    "pilots": 20,
+    "runtime_seconds": 2.065,
+    "agent_runtime_seconds": 1.913,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 9 would be truncated by remaining resources",
+      "campaign 10 would be truncated by remaining resources",
+      "3727 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 42,
+    "net_arpu_gain": 327917.03810912976,
+    "total_cost": 99998.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 2.07,
+    "agent_runtime_seconds": 1.914,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 9 would be truncated by remaining resources",
+      "campaign 10 reaches 6904 before the 5000 cap",
+      "campaign 10 would be truncated by remaining resources",
+      "371 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 43,
+    "net_arpu_gain": 637190.6188071105,
+    "total_cost": 99998.0,
+    "total_contacts": 11731,
+    "pilots": 20,
+    "runtime_seconds": 2.049,
+    "agent_runtime_seconds": 1.896,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 7 would be truncated by remaining resources",
+      "campaign 9 would be truncated by remaining resources",
+      "10 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 44,
+    "net_arpu_gain": 419841.4907562153,
+    "total_cost": 99998.0,
+    "total_contacts": 14523,
+    "pilots": 20,
+    "runtime_seconds": 2.082,
+    "agent_runtime_seconds": 1.927,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 9 would be truncated by remaining resources"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 45,
+    "net_arpu_gain": 438786.3949779442,
+    "total_cost": 99998.0,
+    "total_contacts": 13334,
+    "pilots": 20,
+    "runtime_seconds": 1.833,
+    "agent_runtime_seconds": 1.695,
+    "raw_campaign_count": 7,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 5 would be truncated by remaining resources",
+      "3056 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 46,
+    "net_arpu_gain": 451751.8457146945,
+    "total_cost": 100000.0,
+    "total_contacts": 14453,
+    "pilots": 20,
+    "runtime_seconds": 2.058,
+    "agent_runtime_seconds": 1.907,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 10 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 47,
+    "net_arpu_gain": -528211.5466524349,
+    "total_cost": 97100.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.83,
+    "agent_runtime_seconds": 1.705,
+    "raw_campaign_count": 4,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 4 would be truncated by remaining resources"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 48,
+    "net_arpu_gain": -320195.7634324913,
+    "total_cost": 66932.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.786,
+    "agent_runtime_seconds": 1.664,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 49,
+    "net_arpu_gain": -89933.38278379524,
+    "total_cost": 100000.0,
+    "total_contacts": 14016,
+    "pilots": 20,
+    "runtime_seconds": 2.016,
+    "agent_runtime_seconds": 1.864,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 9 would be truncated by remaining resources",
+      "1 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 50,
+    "net_arpu_gain": 1310666.9732010532,
+    "total_cost": 99998.0,
+    "total_contacts": 10260,
+    "pilots": 20,
+    "runtime_seconds": 2.113,
+    "agent_runtime_seconds": 1.966,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 10 would be truncated by remaining resources",
+      "345 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 51,
+    "net_arpu_gain": 201341.94720176887,
+    "total_cost": 100000.0,
+    "total_contacts": 12249,
+    "pilots": 20,
+    "runtime_seconds": 2.007,
+    "agent_runtime_seconds": 1.854,
+    "raw_campaign_count": 9,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 4 would be truncated by remaining resources",
+      "campaign 7 would be truncated by remaining resources",
+      "4 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 52,
+    "net_arpu_gain": 226146.51637697732,
+    "total_cost": 99998.0,
+    "total_contacts": 11558,
+    "pilots": 20,
+    "runtime_seconds": 1.87,
+    "agent_runtime_seconds": 1.732,
+    "raw_campaign_count": 7,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 5 would be truncated by remaining resources",
+      "2 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 53,
+    "net_arpu_gain": 461737.36532354285,
+    "total_cost": 100000.0,
+    "total_contacts": 12474,
+    "pilots": 20,
+    "runtime_seconds": 1.956,
+    "agent_runtime_seconds": 1.806,
+    "raw_campaign_count": 9,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 4 would be truncated by remaining resources",
+      "campaign 7 would be truncated by remaining resources",
+      "1 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 54,
+    "net_arpu_gain": 386708.6684558202,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.732,
+    "agent_runtime_seconds": 1.612,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 would be truncated by remaining resources",
+      "3054 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 55,
+    "net_arpu_gain": 70279.73158451228,
+    "total_cost": 66932.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.788,
+    "agent_runtime_seconds": 1.667,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 56,
+    "net_arpu_gain": 296831.7601993245,
+    "total_cost": 99964.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.97,
+    "agent_runtime_seconds": 1.83,
+    "raw_campaign_count": 7,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 7 reaches 6904 before the 5000 cap",
+      "campaign 7 would be truncated by remaining resources",
+      "1258 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 57,
+    "net_arpu_gain": 172080.00883583468,
+    "total_cost": 99998.0,
+    "total_contacts": 13334,
+    "pilots": 20,
+    "runtime_seconds": 1.839,
+    "agent_runtime_seconds": 1.701,
+    "raw_campaign_count": 7,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 5 would be truncated by remaining resources",
+      "3056 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 58,
+    "net_arpu_gain": -160148.1064997227,
+    "total_cost": 99998.0,
+    "total_contacts": 13334,
+    "pilots": 20,
+    "runtime_seconds": 1.831,
+    "agent_runtime_seconds": 1.691,
+    "raw_campaign_count": 7,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 5 would be truncated by remaining resources",
+      "4547 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 59,
+    "net_arpu_gain": -81563.78042732511,
+    "total_cost": 99998.0,
+    "total_contacts": 13666,
+    "pilots": 20,
+    "runtime_seconds": 1.871,
+    "agent_runtime_seconds": 1.728,
+    "raw_campaign_count": 8,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 6 would be truncated by remaining resources",
+      "2 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 60,
+    "net_arpu_gain": -83804.68578880439,
+    "total_cost": 81944.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.831,
+    "agent_runtime_seconds": 1.704,
+    "raw_campaign_count": 4,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 4 reaches 6904 before the 5000 cap",
+      "campaign 4 would be truncated by remaining resources",
+      "833 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 61,
+    "net_arpu_gain": 128825.92510651087,
+    "total_cost": 98900.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.781,
+    "agent_runtime_seconds": 1.662,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 3 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "3050 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 62,
+    "net_arpu_gain": -216936.01978100184,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.728,
+    "agent_runtime_seconds": 1.609,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "5706 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 63,
+    "net_arpu_gain": -346890.706084445,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.746,
+    "agent_runtime_seconds": 1.625,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "2920 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 64,
+    "net_arpu_gain": -567210.0216025566,
+    "total_cost": 100000.0,
+    "total_contacts": 14016,
+    "pilots": 20,
+    "runtime_seconds": 2.022,
+    "agent_runtime_seconds": 1.87,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 9 would be truncated by remaining resources",
+      "1 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 65,
+    "net_arpu_gain": 65701.69024042576,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.73,
+    "agent_runtime_seconds": 1.61,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 would be truncated by remaining resources",
+      "3054 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 66,
+    "net_arpu_gain": 116363.45974818894,
+    "total_cost": 66376.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.787,
+    "agent_runtime_seconds": 1.665,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 67,
+    "net_arpu_gain": 275985.72472273244,
+    "total_cost": 46932.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.78,
+    "agent_runtime_seconds": 1.656,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 68,
+    "net_arpu_gain": -70494.63810327109,
+    "total_cost": 97100.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.787,
+    "agent_runtime_seconds": 1.665,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 3 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "2212 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 69,
+    "net_arpu_gain": 138931.03341136302,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.735,
+    "agent_runtime_seconds": 1.612,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "4545 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 70,
+    "net_arpu_gain": 494611.5547929299,
+    "total_cost": 100000.0,
+    "total_contacts": 14539,
+    "pilots": 20,
+    "runtime_seconds": 2.076,
+    "agent_runtime_seconds": 1.915,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 8 would be truncated by remaining resources"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 71,
+    "net_arpu_gain": 97280.42381308871,
+    "total_cost": 100000.0,
+    "total_contacts": 14430,
+    "pilots": 20,
+    "runtime_seconds": 2.13,
+    "agent_runtime_seconds": 1.963,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [],
+    "warnings": []
+  },
+  {
+    "seed": 72,
+    "net_arpu_gain": 947957.8979707841,
+    "total_cost": 100000.0,
+    "total_contacts": 14453,
+    "pilots": 20,
+    "runtime_seconds": 2.078,
+    "agent_runtime_seconds": 1.923,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 10 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 73,
+    "net_arpu_gain": 404568.360017841,
+    "total_cost": 66376.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.87,
+    "agent_runtime_seconds": 1.739,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 74,
+    "net_arpu_gain": 615667.4292630957,
+    "total_cost": 100000.0,
+    "total_contacts": 11562,
+    "pilots": 20,
+    "runtime_seconds": 2.069,
+    "agent_runtime_seconds": 1.914,
+    "raw_campaign_count": 9,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 5 would be truncated by remaining resources"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 75,
+    "net_arpu_gain": 126569.25095170503,
+    "total_cost": 99998.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.867,
+    "agent_runtime_seconds": 1.727,
+    "raw_campaign_count": 6,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 5 would be truncated by remaining resources",
+      "campaign 6 reaches 6904 before the 5000 cap",
+      "campaign 6 would be truncated by remaining resources",
+      "2307 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 76,
+    "net_arpu_gain": 175581.98798844207,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.781,
+    "agent_runtime_seconds": 1.654,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 would be truncated by remaining resources",
+      "3054 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 77,
+    "net_arpu_gain": 213093.02640005422,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.794,
+    "agent_runtime_seconds": 1.662,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 would be truncated by remaining resources",
+      "3054 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 78,
+    "net_arpu_gain": 30812.53152144121,
+    "total_cost": 83804.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.85,
+    "agent_runtime_seconds": 1.721,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 3 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "2212 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 79,
+    "net_arpu_gain": 362709.4278174737,
+    "total_cost": 18904.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.846,
+    "agent_runtime_seconds": 1.719,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 3 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "2212 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 80,
+    "net_arpu_gain": 68770.43800148237,
+    "total_cost": 99998.0,
+    "total_contacts": 13608,
+    "pilots": 20,
+    "runtime_seconds": 1.888,
+    "agent_runtime_seconds": 1.744,
+    "raw_campaign_count": 7,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 5 would be truncated by remaining resources",
+      "3384 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 81,
+    "net_arpu_gain": -306310.2574402912,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.775,
+    "agent_runtime_seconds": 1.649,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "2332 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 82,
+    "net_arpu_gain": 203091.3208904561,
+    "total_cost": 100000.0,
+    "total_contacts": 14453,
+    "pilots": 20,
+    "runtime_seconds": 2.122,
+    "agent_runtime_seconds": 1.966,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 10 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 83,
+    "net_arpu_gain": 958333.8111726025,
+    "total_cost": 99986.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 2.09,
+    "agent_runtime_seconds": 1.936,
+    "raw_campaign_count": 9,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 8 would be truncated by remaining resources",
+      "campaign 9 reaches 6904 before the 5000 cap",
+      "campaign 9 would be truncated by remaining resources",
+      "259 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 84,
+    "net_arpu_gain": 724335.3367697701,
+    "total_cost": 99998.0,
+    "total_contacts": 11731,
+    "pilots": 20,
+    "runtime_seconds": 2.121,
+    "agent_runtime_seconds": 1.957,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 7 would be truncated by remaining resources",
+      "campaign 9 would be truncated by remaining resources",
+      "10 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 85,
+    "net_arpu_gain": 1133637.4286940347,
+    "total_cost": 100000.0,
+    "total_contacts": 12105,
+    "pilots": 20,
+    "runtime_seconds": 2.154,
+    "agent_runtime_seconds": 1.993,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 8 would be truncated by remaining resources",
+      "345 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 86,
+    "net_arpu_gain": 489434.27726953826,
+    "total_cost": 99998.0,
+    "total_contacts": 13334,
+    "pilots": 20,
+    "runtime_seconds": 1.893,
+    "agent_runtime_seconds": 1.748,
+    "raw_campaign_count": 7,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 5 would be truncated by remaining resources",
+      "3056 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 87,
+    "net_arpu_gain": 201220.01179235044,
+    "total_cost": 99998.0,
+    "total_contacts": 11339,
+    "pilots": 20,
+    "runtime_seconds": 2.104,
+    "agent_runtime_seconds": 1.942,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 6 would be truncated by remaining resources",
+      "campaign 9 would be truncated by remaining resources",
+      "4 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 88,
+    "net_arpu_gain": 967818.5238310399,
+    "total_cost": 100000.0,
+    "total_contacts": 12474,
+    "pilots": 20,
+    "runtime_seconds": 2.015,
+    "agent_runtime_seconds": 1.861,
+    "raw_campaign_count": 9,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 4 would be truncated by remaining resources",
+      "campaign 7 would be truncated by remaining resources",
+      "1 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 89,
+    "net_arpu_gain": 406397.28500070685,
+    "total_cost": 66376.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.839,
+    "agent_runtime_seconds": 1.711,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 90,
+    "net_arpu_gain": 80387.52793679669,
+    "total_cost": 57964.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.897,
+    "agent_runtime_seconds": 1.764,
+    "raw_campaign_count": 4,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 4 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 91,
+    "net_arpu_gain": -366370.2282925998,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.809,
+    "agent_runtime_seconds": 1.674,
+    "raw_campaign_count": 4,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 4 reaches 6904 before the 5000 cap",
+      "campaign 4 would be truncated by remaining resources",
+      "961 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 92,
+    "net_arpu_gain": -298014.7806583807,
+    "total_cost": 100000.0,
+    "total_contacts": 12699,
+    "pilots": 20,
+    "runtime_seconds": 1.885,
+    "agent_runtime_seconds": 1.744,
+    "raw_campaign_count": 7,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 2 would be truncated by remaining resources",
+      "campaign 5 would be truncated by remaining resources",
+      "3638 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 93,
+    "net_arpu_gain": 452978.50337986567,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.744,
+    "agent_runtime_seconds": 1.621,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 would be truncated by remaining resources",
+      "3054 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 94,
+    "net_arpu_gain": 912090.360879889,
+    "total_cost": 95266.0,
+    "total_contacts": 8216,
+    "pilots": 20,
+    "runtime_seconds": 2.165,
+    "agent_runtime_seconds": 2.013,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [],
+    "warnings": []
+  },
+  {
+    "seed": 95,
+    "net_arpu_gain": 451083.1187038962,
+    "total_cost": 99990.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.765,
+    "agent_runtime_seconds": 1.641,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 3 would be truncated by remaining resources",
+      "3054 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 96,
+    "net_arpu_gain": -97991.34417114113,
+    "total_cost": 66376.0,
+    "total_contacts": 15000,
+    "pilots": 20,
+    "runtime_seconds": 1.823,
+    "agent_runtime_seconds": 1.697,
+    "raw_campaign_count": 3,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "3382 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 97,
+    "net_arpu_gain": -289604.87628521724,
+    "total_cost": 99998.0,
+    "total_contacts": 13666,
+    "pilots": 20,
+    "runtime_seconds": 1.906,
+    "agent_runtime_seconds": 1.754,
+    "raw_campaign_count": 8,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 would be truncated by remaining resources",
+      "campaign 6 would be truncated by remaining resources",
+      "2 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 98,
+    "net_arpu_gain": -172324.49826236913,
+    "total_cost": 100000.0,
+    "total_contacts": 12699,
+    "pilots": 20,
+    "runtime_seconds": 1.969,
+    "agent_runtime_seconds": 1.819,
+    "raw_campaign_count": 8,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 2 reaches 6904 before the 5000 cap",
+      "campaign 3 reaches 6904 before the 5000 cap",
+      "campaign 3 would be truncated by remaining resources",
+      "campaign 6 would be truncated by remaining resources",
+      "688 repeated final contacts spend resources but do not duplicate lift"
+    ],
+    "warnings": []
+  },
+  {
+    "seed": 99,
+    "net_arpu_gain": 126857.90127695227,
+    "total_cost": 100000.0,
+    "total_contacts": 14492,
+    "pilots": 20,
+    "runtime_seconds": 2.106,
+    "agent_runtime_seconds": 1.946,
+    "raw_campaign_count": 10,
+    "raw_errors": [],
+    "raw_warnings": [
+      "campaign 1 reaches 6904 before the 5000 cap"
+    ],
+    "warnings": []
+  }
+]

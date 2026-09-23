@@ -1,0 +1,58 @@
+{
+  "identical": true,
+  "sha256_first": "305c7d41394309b68287c035f2c89fcd08875dede274df40f08de9241e65e46a",
+  "sha256_second": "305c7d41394309b68287c035f2c89fcd08875dede274df40f08de9241e65e46a",
+  "campaign_counts": [
+    10,
+    10
+  ],
+  "logical_sha256": [
+    "cca88bdea9668f55b534c3ddd380862e79b66c3b5291eca5036b4e07940f61ee",
+    "cca88bdea9668f55b534c3ddd380862e79b66c3b5291eca5036b4e07940f61ee"
+  ],
+  "lf_sha256": [
+    "305c7d41394309b68287c035f2c89fcd08875dede274df40f08de9241e65e46a",
+    "305c7d41394309b68287c035f2c89fcd08875dede274df40f08de9241e65e46a"
+  ],
+  "crlf_sha256": [
+    "bdcc64500857306de26e459acd4bc266da0e9a696b2a1ab3c416163517a7c91c",
+    "bdcc64500857306de26e459acd4bc266da0e9a696b2a1ab3c416163517a7c91c"
+  ],
+  "line_endings": [
+    {
+      "lf": 11,
+      "crlf": 0
+    },
+    {
+      "lf": 11,
+      "crlf": 0
+    }
+  ],
+  "headers": [
+    [
+      "campaign_name",
+      "filter_arpu_segment",
+      "filter_data_segment",
+      "filter_call_segment",
+      "filter_current_tariff",
+      "target_tariff",
+      "channel"
+    ],
+    [
+      "campaign_name",
+      "filter_arpu_segment",
+      "filter_data_segment",
+      "filter_call_segment",
+      "filter_current_tariff",
+      "target_tariff",
+      "channel"
+    ]
+  ],
+  "environment": {
+    "python": "3.13.7",
+    "pandas": "3.0.1",
+    "numpy": "2.3.5"
+  },
+  "isolated_copy": true,
+  "api_key_removed": true
+}
