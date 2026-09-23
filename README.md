@@ -74,7 +74,7 @@ python3 --version
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 .venv/bin/python scripts/prepare_case.py '/absolute/path/to/beeline_case_participants.zip'
-.venv/bin/python -m unittest scripts.test_agent strategy.tests.test_core evals.test_contract_checks -v
+.venv/bin/python -m unittest scripts.test_agent strategy.tests.test_core strategy.tests.test_robustness evals.test_contract_checks evals.test_compare_isolated -v
 .venv/bin/python local_eval.py
 .venv/bin/python evals/check_agent.py --agent agent.py --package .
 .venv/bin/python evals/check_agent.py --agent agent.py --package . --feedback-check
@@ -97,7 +97,7 @@ py -3 --version
 py -3 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe scripts/prepare_case.py 'C:\path\to\beeline_case_participants.zip'
-.\.venv\Scripts\python.exe -m unittest scripts.test_agent strategy.tests.test_core evals.test_contract_checks -v
+.\.venv\Scripts\python.exe -m unittest scripts.test_agent strategy.tests.test_core strategy.tests.test_robustness evals.test_contract_checks evals.test_compare_isolated -v
 .\.venv\Scripts\python.exe local_eval.py
 .\.venv\Scripts\python.exe evals/check_agent.py --agent agent.py --package .
 .\.venv\Scripts\python.exe evals/check_agent.py --agent agent.py --package . --feedback-check
@@ -113,16 +113,16 @@ git diff --exit-code --ignore-space-at-eol -- submission.csv
 | Шаг | Ожидаемый результат |
 |---|---|
 | Установка ZIP | `Installed 13 unchanged files` |
-| Unit-тесты | `Ran 35 tests`, затем `OK` |
-| `local_eval.py` | `Статус: PASS`, чистый результат около **+327 917** на seed 42 |
-| `check_agent.py` | `"errors": []`, 10 финальных кампаний и 20 пилотов |
+| Unit-тесты | `Ran 54 tests`, затем `OK` |
+| `local_eval.py` | `Статус: PASS`, чистый результат около **+253 392** на seed 42 |
+| `check_agent.py` | `"errors": []`, 7 финальных кампаний и 20 пилотов |
 | `--feedback-check` | `"feedback_changes_campaigns": true`; `errors` пуст в обоих сценариях |
-| `make_submission.py` | `submission.csv` с 10 строками кампаний и заголовком |
+| `make_submission.py` | `submission.csv` с 7 строками кампаний и заголовком |
 | Последний `git diff` | Нет вывода и код завершения 0: CSV совпал с версией в Git с учётом различий LF/CRLF |
 
-На seed 42 суммарно используются **15 000 контактов** и **99 998 из 100 000**
+На seed 42 суммарно используются **11 558 контактов** и **99 998 из 100 000**
 единиц бюджета. Выполнение `Agent.act` в проверке на macOS заняло около 2 секунд.
-Строка evaluator «Кампаний: 30» включает 20 пилотов и 10 финальных кампаний.
+Строка evaluator «Кампаний: 27» включает 20 пилотов и 7 финальных кампаний.
 Предупреждения о cap 5 000, частичном охвате и повторных контактах допустимы;
 проверка исходного ответа через `check_agent.py` должна завершиться без ошибок.
 
@@ -136,9 +136,24 @@ git diff --exit-code --ignore-space-at-eol -- submission.csv
 
 В PowerShell используйте `.\.venv\Scripts\python.exe local_eval.py --runs 10`.
 В независимой проверке все 10 прогонов завершились: 9 прибыльных, 1 убыточный;
-медиана **+575 915**, минимум **−282 662**, максимум **+943 808**.
-По [расширенному аудиту 100 seed](docs/planning/next_round_2026_09_23/project_actual_audit_2026_09_23_ru.md)
-75 прогонов прибыльны, 25 убыточны; средний net **+315 844.67**.
+медиана **+622 922**, минимум **−70 362**, максимум **+1 349 809**.
+
+Текущая версия включает стратегию T-10. На одинаковых проверочных seed 100–199
+она сравнивалась с предыдущей версией в отдельных процессах и каталогах:
+
+| Показатель, 100 прогонов | Предыдущая версия | Текущая T-10 |
+|---|---:|---:|
+| Средний net | +286 700.61 | **+629 492.15** |
+| Убыточных прогонов | 27 | **5** |
+| Худший net | −742 519.79 | **−389 787.24** |
+
+Независимое повторение на macOS подтвердило все 200 результатов, отсутствие
+ошибок исходного ответа, нарушений лимитов и перехода на резервный шаблон.
+T-10 лучше в 76 из 100 пар. На демонстрационном seed 42 результат снизился
+с +327 917.04 до +253 391.73; улучшение на каждом запуске не гарантируется.
+Подробности и воспроизводимые данные: [отчёт T-10](strategy/reports/T-10-robustness.md)
+и [результаты по seed](strategy/reports/T-10-evidence.json).
+Старые отчёты T-04/T-05 и аудиты в `docs/planning/` относятся к прежней стратегии.
 
 Данные синтетические и не описывают реальных клиентов или показатели Beeline.
 Mock-среда проверяет механику, но её эффекты отличаются от скрытого судейства:
@@ -150,6 +165,9 @@ Mock-среда проверяет механику, но её эффекты о
    и ресурсами, проверяет формат финального ответа.
 2. `strategy/` строит кандидатов по текущему тарифу и ARPU-сегменту, уточняет
    исторические оценки по результатам пилотов и выбирает портфель кампаний.
+   После восьми пилотов приоритет получают повторные проверки перспективных
+   кандидатов. Наблюдения объединяются по каналу; повторные push-пилоты снижают
+   шум измерений, сохраняя неопределённость переноса на платные каналы.
 3. `evals/` проверяет исходный ответ до исправлений официального evaluator,
    соблюдение лимитов, влияние обратной связи и воспроизводимость.
 4. Официальный `make_submission.py` запускает агента на seed 42 и создаёт CSV.

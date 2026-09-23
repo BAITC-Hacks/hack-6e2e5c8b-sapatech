@@ -4,7 +4,7 @@ Last updated: 2026-09-23
 
 ## Current decision
 
-- **Status:** technical deliverable ready; T-04/T-05 and B1-002/B2-002 accepted; final submission.csv generated and verified. CONTROL stop / STOP-20260923-1513-T03; awaiting final reports and scheduler-deletion confirmations. Not submitted to the platform.
+- **Status:** T-10 robust strategy integrated with its reproducible seven-campaign submission.csv; current judge setup and expected results are in README.md. Independent validation: 54/54 tests and 100 paired seeds passed. Earlier team schedules remain stopped. Not submitted to the platform.
 - **Track:** 04 Telecommunications.
 - **Case owner:** Beeline.
 - **Official case:** Beeline Tariff Marketing Campaigns Case.
@@ -81,8 +81,12 @@ The no-action baseline in the supplied package is `150,641,084`, calculated as t
 - [x] `python local_eval.py --runs 10` shows the strategy's variance across seeds.
 - [x] The repository contains clear launch, validation, data, and limitation documentation.
 
-Acceptance evidence is recorded in coordination/RECEIPTS.md and the T-04/T-05
-reports. Final CSV matches the previously verified seed42 hash. This is technical
+Current acceptance evidence is recorded in strategy/reports/T-10-robustness.md,
+strategy/reports/T-10-evidence.json and coordination/tasks/T-10.md. The seven-row
+CSV has normalized-LF SHA-256
+`290f30c0fddac57c737210051afc1ebde2c964a97900cf9d8f57ea5ce25bad15`.
+The T-04/T-05 reports and earlier checkpoints below describe the previous version.
+Current launch commands and expected outputs are in README.md. This is technical
 readiness, not a claim of hidden-score performance or platform acceptance.
 
 ## Output schema
@@ -152,9 +156,10 @@ customer_profile + historical tariff changes
 
 The demo should show one clean execution, the pilot history, remaining budget and contacts, the returned campaign list, and the resulting net ARPU gain. A second command should show stability across ten seeds.
 
-## Planned strategy
+## Original strategy plan
 
-This is the implementation hypothesis, not a claim that it is already built.
+Historical implementation hypothesis. The current implementation is documented in
+strategy/README.md and the T-10 report; the plan below is retained for context.
 
 1. **Historical prior:** aggregate `change_tariff.csv` and supporting usage/ARPU data by current tariff, candidate target tariff, and available audience segments.
 2. **Candidate generation:** exclude same-tariff transitions, tiny or invalid cohorts, and candidates whose reachable audience cannot justify contact cost.
@@ -205,7 +210,7 @@ Each participant needs attributable commits and task evidence. Internal interfac
 
 Do not squash all work into one participant's commit. Work on separate task branches and preserve each participant's contribution history.
 
-## Local setup and measured baseline
+## Historical setup and baseline checkpoints
 
 Python 3.12.14, pandas 3.0.1 and numpy 2.3.5 were used on Windows.
 Install the official ZIP locally; the installer preserves bytes and refuses to
@@ -309,19 +314,16 @@ The agent must still complete successfully when the optional API call fails.
 - **Official repository:** `BAITC-Hacks/hack-6e2e5c8b-sapatech`
 - **Stable branch:** `main`
 - **Official initial commit:** `e1a99ae3d47398c67fdc9c4849e983e487a4fb71`
-- **Current phase:** technical implementation complete; collecting STOP confirmations
-- **Working now:** integrated strategy, pilot orchestration and independent verification
+- **Current phase:** T-10 delivery integrated; ready for operator platform submission
+- **Working now:** robust T-10 strategy, pilot orchestration and independent verification
 - **Implementation handoff:** see `PLAN.md` and named instructions in `coordination/people/`; Бауыржан can start from first T-02 commit `580f1eb`.
-- **Pending dependencies:** three final STOP reports and scheduler-deletion confirmations. Technical reviews and final artifact checks are complete. Platform submission requires a separate operator instruction.
+- **Pending delivery:** the operator must submit the project name, description and official repository on the track platform. Git push does not submit the project. Earlier team schedule administration remains outside this integration.
 
 ## Current priorities
 
-1. Start the named owners on T-03/T-04/T-05 using the shared contract. Бауыржан receives T-04 first.
-2. Confirm with the mentor whether raw case data may be stored in the private repository and clarify the 5/9-hour and 5/10-minute inconsistencies.
-3. Prepare a local-only starter workspace and run the unchanged template as a baseline.
-4. Implement a deterministic history-informed candidate generator.
-5. Add adaptive pilots, uncertainty-aware ranking, channel economics, and hard resource guardrails.
-6. Validate one run, ten-seed stability, and reproducible submission generation before adding optional LLM behavior.
+1. Judges follow README.md using the full main-branch repository and official ZIP.
+2. The operator submits the project on the track platform before its deadline.
+3. Retain historical team reports and attributable commits; do not restart schedules.
 
 ## Required submission artifacts
 
