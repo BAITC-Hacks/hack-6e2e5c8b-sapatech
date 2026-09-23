@@ -51,6 +51,10 @@ results are used for selection, not presented as independent validation.
 Before evaluating seeds 100–199, the selected code was frozen with
 `strategy/core.py` SHA-256:
 `b4f7126c4c1c2c7de17871c639306452a54b893e3d9fbf5685789b00deff37c3`.
+This is the frozen Windows file-byte hash. Git stores LF line endings;
+the committed source and the frozen source normalized to LF both have SHA-256
+`07d7e0849d31ae5adb27485e710e41e09405042ede1561b0740471084379ad1b`.
+The delivery check verified equality after line-ending normalization.
 No strategy edits were made after the holdout began. The declared acceptance
 gate requires improved mean net, no increase in losing runs, no worse minimum,
 and valid raw outputs, resource accounting, runtime and strategy diagnostics.
