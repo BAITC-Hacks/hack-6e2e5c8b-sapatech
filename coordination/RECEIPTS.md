@@ -10,6 +10,7 @@
 | Ерлан / повторная проверка интеграции | 81a33f8 | accepted | Diff только README, отчёт и T-05; авторство сохранено. Windows official raw-check seed42: exit 0, errors=[], 20 пилотов, 10 кампаний, 15000 контактов, cost 99998 |
 | Бауыржан-1 / B1-001 r1 | 344b09b | accepted; scheduling blocked | Аудит по публичным данным принят: код не менялся, marginal gain и все повторные расходы учитываются. Automation-ID/state unavailable, автоматическое расписание НЕ создано |
 | Бауыржан-2 / B2-001 r1 | 9ab437e | accepted | Проверены авторство, два разрешённых пути и tested 7c27cfe; новых дефектов нет. beeline-2 ACTIVE по отчёту автора. Reviewer-ветка не объединялась |
+| Бауыржан-2 / B2-002 r1 | d79c6dd | accepted | Точные numpy 2.3.5/pandas 3.0.1 в новом Python 3.13.7 venv и один PASS на macOS по отчёту; координатор сверил target, diff, ZIP hash и 13 официальных файлов. Код не менялся |
 | Ерлан / ER-001 r2 → r3 | d87b223; verifier 6d0207b | accepted | Код r2: Windows 9/9 tests, raw seed42, feedback и два CSV — exit 0, merge dca1954. Документация r3 принята без повторных тестов; beeline ACTIVE по отчёту автора |
 
 Отчёты needs_review не принимаются автоматически. Исправления требуют diff и
@@ -129,3 +130,29 @@ SHA256 bdcc64500857306de26e459acd4bc266da0e9a696b2a1ab3c416163517a7c91c.
   Документация принята и объединена с сохранением авторства при чистом дереве;
   production не менялся, новые тесты не запускались. CONTROL run: B1-002/r1
   и B2-002/r1 ещё ожидают отчётов; ER-001/r3 повторно не исполнять.
+
+## Приёмка B2-002/r1, 23.09
+
+- Observed d79c6dd94826f3c76490726e941d756fa3303bcb; автор Bauyrzhan
+  Myrzagaliyev. Изменены только собственный отчёт coordination/reviews/B2-002-r1.md
+  и T-06, diff --check чистый. Source d6646de, Tested 2dd4277 совпадают с заданием;
+  target является предком source. Между target и текущим HEAD нет изменений
+  agent.py, strategy/core.py, strategy/__init__.py, requirements.txt,
+  scripts/prepare_case.py, docs/contracts.md или decisions.
+- Принято свидетельство reviewer: macOS arm64, новый Python 3.13.7 venv,
+  numpy==2.3.5/pandas==3.0.1 из requirements, импорты и один local_eval exit 0.
+  Seed42 net +327917, cost99998, 15000 контактов, 20 пилотов, 10 кампаний
+  согласуются с ранее принятым Windows-запуском. Первый DNS exit2 описан честно,
+  последующая успешная установка не выдаётся за отсутствие первоначальной ошибки.
+- Независимая локальная сверка координатора: Python hashlib.sha256 локального
+  Downloads/beeline_case_participants (1).zip =
+  df1d955fb97816ff6de8ceb142ed589915d969f43f840a650dcdfbe12734f20b, совпадает с отчётом.
+  zipfile + scripts.prepare_case.MEMBERS: 13/13 официальных файлов рабочей копии
+  побайтно совпали с архивом, mismatches=[], exit0. Клиентские строки не выводились.
+- Новый macOS venv и его выполнение — свидетельства автора, а не повторный запуск
+  координатора. Windows fresh-install этим отчётом не подтверждён. Общий аудит,
+  multi-seed, feedback и CSV без изменений повторно не запускались; merge
+  reviewer-ветки не требуется. Новых дефектов/заданий reviewer нет, ждать CONTROL.
+- beeline-2 ACTIVE по отчёту автора; DELETED не заявлен. Бауыржан-1 B1-002/r1
+  пока не опубликовал новый отчёт; это не утверждение об отсутствии его работы.
+  CONTROL run: остались B1-002, финальный комплект и stop-протокол.

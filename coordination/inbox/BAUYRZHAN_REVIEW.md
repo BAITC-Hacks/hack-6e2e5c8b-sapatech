@@ -4,7 +4,7 @@
 - Revision: 1
 - Role: BAUYRZHAN_REVIEW
 - Task: T-06
-- State: ready
+- State: accepted
 - Working-branch: review/T-06-bauyrzhan-audit
 - Target-commit: 2dd427779d27da07bdccc52632f78e0e1b092e39
 - Reply-path: coordination/reviews/B2-002-r1.md
@@ -35,3 +35,8 @@
 Owned paths: coordination/reviews/** и coordination/tasks/T-06.md.
 Не исправлять код, README, зависимости или shared contracts. Без платных API,
 без platform submission. После needs_review ждать новой revision или CONTROL stop.
+
+Приёмка Нурсултаном: d79c6dd принят по охвату macOS exact requirements и одного
+запуска. Target/source, owned paths, hash локального ZIP и 13 официальных файлов
+сверены; production не менялся. B2-002/r1 завершено, не повторять проверки.
+Нового задания нет: ожидать новой revision или CONTROL stop. ER-001/r3 уже принят.
