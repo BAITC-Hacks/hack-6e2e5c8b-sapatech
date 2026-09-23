@@ -4,7 +4,7 @@
 - Revision: 1
 - Role: BAUYRZHAN_REVIEW
 - Task: T-06
-- State: ready
+- State: accepted
 - Working-branch: review/T-06-bauyrzhan-audit
 - Target-commit: 7c27cfe6a943ea468a69cf9c2b7d37feadceb58b
 - Reply-path: coordination/reviews/B2-001-r1.md
@@ -29,3 +29,8 @@ ADR-004, отрицательный seed2 и приблизительный пе
 Разрешены только отчёты coordination/reviews/** и своя карточка T-06.
 Коммит и push — только review/T-06-bauyrzhan-audit; никакого изменения кода,
 strategy/, evals/, main, shared contracts и чужих веток.
+
+Приёмка Нурсултаном: отчёт 9ab437e принят по указанному охвату, код не меняется.
+B2-001/r1 повторно не выполнять. Seed21 — риск качества mock, не дефект границы.
+beeline-2 ACTIVE зарегистрирован по отчёту автора. Ожидать новой revision либо
+CONTROL stop; повторять тесты или добавлять эксперименты не требуется.

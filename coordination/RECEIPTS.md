@@ -9,8 +9,8 @@
 | Ерлан / до mailbox | 5029ae3, cap-fix 6065943 | accepted | 8 tests passed; feedback-check exit 0, разные наблюдения меняют кампании, errors=[]; новое ER-001 закрывает оставшиеся вопросы |
 | Ерлан / повторная проверка интеграции | 81a33f8 | accepted | Diff только README, отчёт и T-05; авторство сохранено. Windows official raw-check seed42: exit 0, errors=[], 20 пилотов, 10 кампаний, 15000 контактов, cost 99998 |
 | Бауыржан-1 / B1-001 r1 | 344b09b | accepted; scheduling blocked | Аудит по публичным данным принят: код не менялся, marginal gain и все повторные расходы учитываются. Automation-ID/state unavailable, автоматическое расписание НЕ создано |
-| Бауыржан-2 / B2-001 r1 | ещё нет | awaiting_report | Очередь опубликована; Automation-ID получателя пока неизвестен |
-| Ерлан / ER-001 r1 → r2 | 6d0207b; claim 178e8fa | awaiting_validation_report | Опубликована реализация short-pilot проверки и один новый regression-test; отчёт пока in_progress. Automation-ID beeline ACTIVE по отчёту автора. До финальной передачи код не объединён |
+| Бауыржан-2 / B2-001 r1 | 9ab437e | accepted | Проверены авторство, два разрешённых пути и tested 7c27cfe; новых дефектов нет. beeline-2 ACTIVE по отчёту автора. Reviewer-ветка не объединялась |
+| Ерлан / ER-001 r2 | 7c3cf37; verifier 6d0207b | accepted; documentation follow-up r3 | Windows: 9/9 tests, raw seed42, feedback и два CSV — exit 0. Merge dca1954 сохраняет авторство. beeline ACTIVE по отчёту автора |
 
 Отчёты needs_review не принимаются автоматически. Исправления требуют diff и
 подходящих проверок; адресные замечания публикуются новой revision задания.
@@ -51,3 +51,49 @@ SHA256 bdcc64500857306de26e459acd4bc266da0e9a696b2a1ab3c416163517a7c91c.
   ещё не опубликован. Не вмешиваемся в незавершённую передачу и не merge-им её.
 - Ветка второго аккаунта Бауыржана ещё не появилась. beeline-3 на момент проверки
   всё ещё привязан к исходному чату; перенос в новый чат пока не подтверждён.
+
+## Передача координатора и первая проверка нового чата, 23.09, около 15:00 UTC+05
+
+- beeline-3 перенесён штатным automation_update без пересоздания. Ответ инструмента:
+  updated, ACTIVE; повторно прочитан automation.toml: target_thread_id
+  01a0cdaa-dc70-71a3-913d-f70634ff8633, интервал 3 минуты, прежний prompt сохранён.
+  В локальном каталоге automations ровно один планировщик — beeline-3.
+  Чужие расписания не изменялись. Старый чат завершил запись; его cb7e414 опубликован.
+- Git root и origin совпали с официальным репозиторием; автор Нурсултан Нурмухамет,
+  325932803+NurmukhametNursultan@users.noreply.github.com. Fetch успешен.
+  Во время передачи незавершённые правки четырёх файлов сохранены отдельным
+  снимком в TEMP/beeline-handoff-20260923-145021; после публикации старого чата
+  рабочее дерево стало чистым. Никакого reset/stash/перезаписывания работы.
+- T-05: просмотрены три новых коммита Ерлана, только его owned paths.
+  Проверенный снимок: cb7e414 плюс evals/README из 7c3cf37; production
+  agent.py и strategy совпадают с tested 7c27cfe. Временный каталог
+  TEMP/beeline-t03-er001-7c3cf37, официальный пакет скопирован отдельно.
+  Windows, Python 3.12.14, pandas 3.0.1, numpy 2.3.5.
+  Команды (P — проверенный Python, R — снимок, C — копия официального пакета):
+  `& $P -m unittest evals.test_contract_checks -v` — 9/9, exit 0;
+  `& $P evals/check_agent.py --agent "$R/agent.py" --package $C --seed 42`
+  — exit 0, errors=[], 3.318 s, 20 пилотов/4000 контактов, 10 кампаний/11000
+  контактов, суммарная стоимость 99998;
+  та же команда с `--feedback-check` — exit 0, решения различаются, обе errors=[];
+  `& $P evals/check_submission.py --package $C --agent "$R/agent.py" --strategy
+  "$R/strategy"` — exit 0, две независимые копии, API key удалён дочерним checker,
+  10 кампаний, raw SHA256 bdcc64500857306de26e459acd4bc266da0e9a696b2a1ab3c416163517a7c91c,
+  logical SHA256 cca88bdea9668f55b534c3ddd380862e79b66c3b5291eca5036b4e07940f61ee.
+  LF hash совпадает с отчётом macOS. Логи raw-seed42.json, feedback.json,
+  submission-check.json находятся в указанном локальном TEMP, данные не коммитились.
+- Проверен PowerShell-блок копирования agent.py/strategy в C, Push-Location/try/finally:
+  `& $P local_eval.py` и `& $P make_submission.py` — exit 0, CSV того же raw hash.
+  P = C:/Users/NursultanNurmukhamet/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe.
+  Команда py отсутствует: создание venv и pip из исходного README не проверены.
+  Полный multi-seed не повторялся: агент/ядро не менялись, прежние результаты сохранены.
+  ER-001/r3 поручает владельцу документации отразить точную границу проверки.
+- B2-001/r1: 9ab437e меняет только coordination/reviews/B2-001-r1.md и T-06;
+  author Bauyrzhan Myrzagaliyev. Tested 7c27cfe — предок Source 000cb15;
+  agent.py, strategy/core.py и scripts/test_agent.py с тех пор не менялись.
+  Покрытие сопоставлено с кодом и существующими 12 тестами; без новых дефектов
+  эти тесты не перезапускались. Дополнительные сценарии/seed21 (-231184.70)
+  и missing-history (-109505.29) — измерения reviewer, не независимый новый
+  запуск координатора. Принят ограниченный охват ревью, не гарантия качества.
+- CONTROL остаётся run: ожидается только документальная передача ER-001/r3,
+  финальная комплектность артефактов и дальнейший stop-протокол. Блокер регистрации
+  Бауыржана-1 сохраняется; ACTIVE/DELETED за него не утверждаются.

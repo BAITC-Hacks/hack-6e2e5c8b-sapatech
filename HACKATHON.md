@@ -4,7 +4,7 @@ Last updated: 2026-09-23
 
 ## Current decision
 
-- **Status:** T-03 and T-04 integrated; T-05 campaign caps aligned; CSV difference explained by line endings; short-pilot validation and final README checks pending.
+- **Status:** T-03/T-04 integrated; T-05 short-pilot validation accepted and merged at dca1954; Windows raw/feedback/CSV checks passed; final README documentation pending ER-001/r3.
 - **Track:** 04 Telecommunications.
 - **Case owner:** Beeline.
 - **Official case:** Beeline Tariff Marketing Campaigns Case.
@@ -308,7 +308,7 @@ The agent must still complete successfully when the optional API call fails.
 - **Current phase:** T-03 implementation
 - **Working now:** integrated strategy, pilot orchestration and independent verification
 - **Implementation handoff:** see `PLAN.md` and named instructions in `coordination/people/`; Бауыржан can start from first T-02 commit `580f1eb`.
-- **Pending dependencies:** T-05 cap semantics and current README, final submission artifact
+- **Pending dependencies:** ER-001/r3 final README, final artifact completeness, and team stop acknowledgements. Cap semantics, short actual pilots and B2-001/r1 review are accepted. Platform submission requires a separate operator instruction.
 
 ## Current priorities
 
