@@ -106,3 +106,51 @@ evaluator, checks resources and runtime, and repeats the last seed to compare
 both decisions and public observations. Mock performance is not hidden-judge
 performance. Submission generation and independent evaluation belong to T-03
 and T-05; the core does not write submission files.
+
+## Robustness check (T-04 phase 2, 2026-09-23)
+
+The integrated baseline is commit `cca147b`; its portfolio score remains
+`mean - 0.5 * error`. On public pilot observations in the local evaluator,
+20 push pilots often cover 13–15 distinct candidate cells. In the losing runs
+examined (seeds 2, 11, 12, 16), observed lift ratios include both positive and
+negative values of roughly 0.1 or less. With the public per-customer noise
+standard deviation of 0.804, a 200-contact pilot has a sampling standard error
+of about 0.057. Selecting the best of many noisy estimates can therefore favor
+an apparent winner. Confirmation pilots reduce this risk but do not eliminate
+model error or overlapping-cohort dependence. Pilots are on push, while some
+final campaigns use paid channels; multiplier-based transfer is unvalidated by
+direct paid-channel observations. Historical tariff changes are observational,
+so their weak prior cannot establish a causal campaign effect. The reported
+posterior error covers the assumed sampling model, not these additional risks.
+
+Exactly one experimental change was evaluated in a temporary copy: increase
+the portfolio penalty from `0.5 * error` to `1.0 * error` in
+`select_campaigns`. Baseline and variant used identical seeds in each block;
+seeds 10–19 were held out until after the 0–9 comparison. Numbers are local
+official-evaluator results, not hidden-judge estimates. Cost is mean total
+spend, runtime is mean strategy time per run, and violations count failures of
+the raw-output, budget, contact, pilot-count and runtime checks in the test
+adapter.
+
+| Seeds | Policy | Mean net gain | Median | Minimum | Negative runs | Mean cost | Mean runtime | Violations |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| 0–9 | Baseline | 533,014.48 | 575,915.02 | -282,662.44 | 1/10 | 99,823.00 | 1.652 s | 0 |
+| 0–9 | 1.0-error penalty | 213,588.40 | 232,166.97 | -100,343.86 | 1/10 | 22,230.80 | 1.616 s | 0 |
+| 10–19 | Baseline | 399,673.39 | 256,420.23 | -63,864.92 | 3/10 | 94,983.20 | 1.526 s | 0 |
+| 10–19 | 1.0-error penalty | 254,842.76 | 334,970.10 | -156,762.94 | 3/10 | 54,799.40 | 1.553 s | 0 |
+
+The variant won only 1/10 paired seeds in the first block and 3/10 in the
+holdout. It spent less but also lost 319,426.08 and 144,830.62 in mean net
+gain respectively; negative-run counts did not improve. In the holdout its
+worst result was worse. **Rejected: keep the original algorithm unchanged.**
+Twenty pilots ran on every seed. All 14 unit tests passed; repeating seeds 9
+and 19 produced identical campaigns, public observations and net gain.
+
+To reproduce, run the unit command above and the official smoke harness with
+`--runs 10` and `--runs 20` from an extracted participant package; use rows
+10–19 of the latter for the holdout and note that the harness repeats its last
+seed. For the comparison, copy `strategy/` to a temporary directory, change
+only the one `ratio = mean - 0.5 * error` line to `1.0 * error`, and run the
+same commands with that copy on `PYTHONPATH`. The experiment used Python 3.9,
+pandas 2.3.3 and numpy 2.0.2. Do not interpret these 20 synthetic seeds as a
+confidence interval or a guarantee of positive returns.
