@@ -45,16 +45,21 @@ failed attempts are not successful observations and do not update the posterior.
   ratio times channel multiplier, with standard deviation 0.15. This conversion
   discount is an explicit heuristic, not identified by the historical sample.
 - Pilots update mean/variance by precision weighting using actual sample size
-  and the publicly documented per-customer noise 0.804. Same-channel observed
-  ratios are **not multiplied again**.
+  and the publicly documented per-customer noise 0.804. Pool observations of
+  each source channel by sample size before transferring its weighted mean.
+  Same-channel observed ratios are **not multiplied again**.
 - Cross-channel transfer scales by the multiplier ratio, caps positive scaling
-  at 1.5 and adds uncertainty. Unknown conversion saturation makes this an
-  approximation; direct paid-channel experimentation is not implemented yet.
+  at 1.5 and adds uncertainty once per source channel. Repeated source pilots
+  reduce sampling noise but cannot average away the shared transfer error.
+  Unknown conversion saturation makes this an approximation; direct paid-channel
+  experimentation is not implemented yet.
 - Research uses the cheapest channel, an optimistic confidence score and a
   penalty for repeatedly exploring the same cohort. Positive uncertain cells
-  can receive repeats; clearly negative cells and cells with 600 observed
-  contacts stop. After ten pilots, promising sampled candidates have priority
-  for confirmation up to 400 observed contacts, reducing winner selection bias.
+  can receive repeats; clearly negative cells and cells with at least 800 observed
+  contacts stop. After eight pilots, promising sampled candidates have priority
+  for confirmation, reducing winner selection bias. The 800-contact threshold
+  stops further requests; a last partial-sized sample can cross it. Official
+  pilot sizes, global resource limits and the final contact reserve still apply.
   Samples request 200 contacts, reduced to available audience/resources, never
   requested below 10.
 - Research reserves 70% of initial available contacts (up to 10,000) for the
@@ -154,3 +159,17 @@ only the one `ratio = mean - 0.5 * error` line to `1.0 * error`, and run the
 same commands with that copy on `PYTHONPATH`. The experiment used Python 3.9,
 pandas 2.3.3 and numpy 2.0.2. Do not interpret these 20 synthetic seeds as a
 confidence interval or a guarantee of positive returns.
+
+## T-10 experimental branch
+
+The phase-2 section above records the earlier rejected confidence-penalty
+experiment. T-10 retains that half-error portfolio penalty and the weak
+historical prior; it changes evidence pooling and the confirmation schedule
+described in the current statistical assumptions above.
+
+Detailed paired results, frozen-source hashes, the rejected regularization
+variant and reproduction commands are in
+[`reports/T-10-robustness.md`](reports/T-10-robustness.md). The new comparison
+tool runs baseline and candidate in separate Python processes and package
+directories, checks their import paths and identical official/data files,
+and validates raw answers before invoking official scoring.
