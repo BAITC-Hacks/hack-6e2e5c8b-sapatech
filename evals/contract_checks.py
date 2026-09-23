@@ -75,13 +75,17 @@ def _filter_audience(profile: pd.DataFrame, campaign: dict) -> pd.DataFrame:
     return audience.sort_values("ID_NUMBER")
 
 
-def check_raw_answer(campaigns: object, env: object) -> CheckResult:
+def check_raw_answer(campaigns: object, env: object,
+                     pilot_requests: list[dict] | None = None) -> CheckResult:
     """Check the unsanitized answer and account for pilots already executed.
 
     Campaign contact/cost accounting uses the official order and caps. The
     campaign schema has no requested audience size, so an audience above 5000
     or partially served by resources is a planning warning, not invalid JSON.
     Pilot customer IDs are not public, so overlap with pilots is not asserted.
+    The public history contains actual counts, not requested counts. If a
+    caller captured requests separately, validate both without inventing a
+    request from a short actual result.
     """
     result = CheckResult()
     if not isinstance(campaigns, list):
@@ -114,22 +118,47 @@ def check_raw_answer(campaigns: object, env: object) -> CheckResult:
         return result
     if not 1 <= len(pilot_history) <= MAX_PILOTS:
         result.errors.append(f"pilot count is {len(pilot_history)}; expected 1..20")
+    if pilot_requests is not None and len(pilot_requests) != len(pilot_history):
+        result.errors.append("captured pilot request count disagrees with pilot_history")
     for index, pilot in enumerate(pilot_history, 1):
         if not isinstance(pilot, dict):
             result.errors.append(f"pilot {index} is not a public result dict")
             continue
         n, cost = pilot.get("n_customers"), pilot.get("cost")
-        if not isinstance(n, (int, float)) or not _finite_number(n) or int(n) != n:
+        if (isinstance(n, bool) or not isinstance(n, (int, float))
+                or not _finite_number(n) or int(n) != n):
             result.errors.append(f"pilot {index} has invalid n_customers")
             continue
         n = int(n)
-        if not MIN_PILOT_CUSTOMERS <= n <= MAX_PILOT_CUSTOMERS:
-            result.errors.append(f"pilot {index} reached {n}; expected 10..200")
+        if not 1 <= n <= MAX_PILOT_CUSTOMERS:
+            result.errors.append(f"pilot {index} reached {n}; expected 1..200 actual contacts")
         result.pilot_contacts += n
+        if pilot_requests is not None and index <= len(pilot_requests):
+            request = pilot_requests[index - 1]
+            if not isinstance(request, dict):
+                result.errors.append(f"pilot {index} captured request is not a dict")
+            else:
+                requested = request.get("n_customers")
+                if (isinstance(requested, bool) or not _finite_number(requested)
+                        or int(float(requested)) != float(requested)
+                        or not MIN_PILOT_CUSTOMERS <= int(requested) <= MAX_PILOT_CUSTOMERS):
+                    result.errors.append(f"pilot {index} requested invalid n_customers")
+                elif n > int(requested):
+                    result.errors.append(f"pilot {index} actual contacts exceed requested")
+                if request.get("target_tariff") != pilot.get("target_tariff"):
+                    result.errors.append(f"pilot {index} request/result target tariff disagree")
+                if request.get("channel") != pilot.get("channel"):
+                    result.errors.append(f"pilot {index} request/result channel disagree")
         if not _finite_number(cost) or float(cost) < 0:
             result.errors.append(f"pilot {index} has invalid cost")
         else:
             result.pilot_cost += float(cost)
+            channel = pilot.get("channel")
+            if _known_key(channel, channels):
+                price = channels[channel].get("cost_per_contact")
+                if (_finite_number(price) and
+                        not math.isclose(float(cost), n * float(price), abs_tol=1e-6)):
+                    result.errors.append(f"pilot {index} cost disagrees with actual contacts")
         if not _known_key(pilot.get("target_tariff"), known_tariffs):
             result.errors.append(f"pilot {index} has unknown target tariff")
         if not _known_key(pilot.get("channel"), channels):

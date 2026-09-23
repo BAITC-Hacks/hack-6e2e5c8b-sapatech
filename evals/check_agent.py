@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import inspect
 import json
 import os
 from pathlib import Path
@@ -32,6 +33,23 @@ def load_agent(path: Path):
     return module.Agent()
 
 
+def capture_pilot_requests(env) -> list[dict]:
+    """Observe successful public calls without changing their results."""
+    original = env.run_pilot
+    signature = inspect.signature(original)
+    requests = []
+
+    def observed(*args, **kwargs):
+        bound = signature.bind(*args, **kwargs)
+        bound.apply_defaults()
+        answer = original(*args, **kwargs)
+        requests.append(dict(bound.arguments))
+        return answer
+
+    env.run_pilot = observed
+    return requests
+
+
 def run_agent(agent_path: Path, package_dir: Path, seed: int, mode: str,
               observed_ratio: float = 0.0) -> dict:
     old_cwd = Path.cwd()
@@ -51,10 +69,11 @@ def run_agent(agent_path: Path, package_dir: Path, seed: int, mode: str,
                 pd.read_csv(package_dir / "data/dict_tariff.csv"),
                 CHANNELS, observed_ratio,
             )
+        pilot_requests = capture_pilot_requests(env)
         start = perf_counter()
         raw = agent.act(env)
         runtime = perf_counter() - start
-        checked = check_raw_answer(raw, env)
+        checked = check_raw_answer(raw, env, pilot_requests)
         return {
             "mode": mode, "seed": seed, "runtime_seconds": round(runtime, 3),
             "raw_campaign_count": len(raw) if isinstance(raw, list) else None,

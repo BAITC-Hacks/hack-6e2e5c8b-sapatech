@@ -4,6 +4,7 @@ import unittest
 
 import pandas as pd
 
+from evals.check_agent import capture_pilot_requests
 from evals.contract_checks import check_raw_answer
 from evals.public_stub import PublicPilotStub
 
@@ -108,6 +109,27 @@ class RawContractTests(unittest.TestCase):
         self.assertEqual(pilot["observed_lift_total"], 0.0)
         result = check_raw_answer([one_campaign()], env)
         self.assertTrue(result.ok, result.errors)
+
+    def test_short_actual_pilot_is_valid_but_short_request_is_not(self):
+        env = sample_env()
+        env.customer_profile = env.customer_profile.iloc[:5].copy()
+        requests = capture_pilot_requests(env)
+        env.run_pilot("tariff_2", "push", 10)
+        self.assertEqual(env.pilot_history[0]["n_customers"], 5)
+        campaign = one_campaign(filter_arpu_segment=None)
+        self.assertTrue(check_raw_answer([campaign], env).ok)
+        self.assertEqual(requests[0]["n_customers"], 10)
+        self.assertTrue(check_raw_answer([campaign], env, requests).ok)
+
+        bad_env = sample_env()
+        bad_requests = capture_pilot_requests(bad_env)
+        bad_env.run_pilot("tariff_2", "push", 9)
+        result = check_raw_answer([one_campaign()], bad_env, bad_requests)
+        self.assertTrue(any("requested invalid" in error for error in result.errors))
+
+        bad_env.pilot_history[0]["n_customers"] = 201
+        result = check_raw_answer([one_campaign()], bad_env, bad_requests)
+        self.assertTrue(any("expected 1..200" in error for error in result.errors))
 
     def test_audience_above_campaign_cap_is_reported(self):
         env = sample_env()

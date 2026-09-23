@@ -19,7 +19,7 @@ from time import perf_counter
 if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from evals.check_agent import load_agent
+from evals.check_agent import capture_pilot_requests, load_agent
 from evals.contract_checks import check_raw_answer
 
 
@@ -37,12 +37,13 @@ def evaluate(path: Path, package_dir: Path, seeds: range) -> dict:
 
             class AuditedAgent:
                 def act(self, env):
+                    pilot_requests = capture_pilot_requests(env)
                     act_start = perf_counter()
                     raw = agent.act(env)
                     raw_audit["agent_runtime_seconds"] = round(
                         perf_counter() - act_start, 3
                     )
-                    checked = check_raw_answer(raw, env)
+                    checked = check_raw_answer(raw, env, pilot_requests)
                     raw_audit["raw_campaign_count"] = (
                         len(raw) if isinstance(raw, list) else None
                     )

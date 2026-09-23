@@ -6,10 +6,10 @@
 вычета стоимости контактов. Эти данные не описывают реальных клиентов или
 показатели Beeline.
 
-**Состояние этой ветки:** независимые проверки T-05 готовы. Опубликованная
-интеграция повторно проверена на `9f782f1` в отдельной локальной копии, без переноса
-`agent.py` и `strategy/` в ветку T-05. Итоговый общий `submission.csv`
-остаётся ответственностью Нурсултана.
+**Состояние этой ветки:** независимые проверки T-05 готовы. Интегрированный
+код агента `9f782f1`/`7c27cfe` проверен в отдельной локальной копии, без
+переноса `agent.py` и `strategy/` в ветку T-05. Итоговый общий
+`submission.csv` остаётся ответственностью Нурсултана.
 
 ## Основной сценарий
 
@@ -20,7 +20,9 @@
 абонентам и вычитает стоимость всех контактов, включая пилотные.
 
 Ограничения: 1–10 финальных кампаний, до 5 000 абонентов в каждой, всего до
-15 000 контактов и 100 000 у.е.; до 20 пилотов по 10–200 человек. Каналы:
+15 000 контактов и 100 000 у.е.; до 20 пилотов с запросом 10–200 человек.
+Фактический охват пилота может быть 1–9 после ограничения аудиторией или
+ресурсами. Каналы:
 `push`, `sms`, `digital_ads`, `call`. Время исполнения агента планируется
 меньше пяти минут при абсолютном пределе кейса в десять минут.
 
@@ -58,6 +60,23 @@ python evals/check_submission.py --package <package> --agent <package>/agent_tem
 коммиты и измерения приведены в [первом отчёте](docs/evaluation/integrated-f95a8e3.md)
 и [повторной проверке `9f782f1`](docs/evaluation/recheck-9f782f1.md).
 
+Фактически проверенные команды для интегрированного кода на macOS (подставьте
+свои пути; `<staged>` — отдельная копия официального пакета с агентом и
+стратегией, `<package>` — исходный пакет вне Git):
+
+```text
+python -m unittest evals.test_contract_checks -v
+python evals/check_agent.py --agent <staged>/agent.py --package <staged> --seed 42
+python evals/check_agent.py --agent <staged>/agent.py --package <staged> --feedback-check
+python evals/check_submission.py --package <package> --agent <staged>/agent.py --strategy <staged>/strategy
+```
+
+Два CSV совпадают внутри macOS. В ER-001 проверено: SHA-256 Windows-файла,
+сообщённый интегратором, точно равен SHA-256 того же macOS CSV после замены
+LF на CRLF. Содержание и порядок строк при этой операции не меняются;
+межплатформенную разницу байтов объясняют окончания строк. Подробные хеши и
+версии среды — в [отчёте ER-001](docs/evaluation/ER-001-r1.md).
+
 Эти команды проверены на локальном пакете с Python и pandas/numpy. Тест
 `--feedback-check` у официального шаблона завершается кодом 1: он обнаруживает
 нарушения контракта в искусственных крайних случаях. Сравнение шаблона с ним
@@ -72,25 +91,26 @@ python evals/check_submission.py --package <package> --agent <package>/agent_tem
 
 ## Подготовка итогового запуска в PowerShell
 
-Ниже команда для Windows после появления `agent.py` и `strategy/` в командном
-репозитории. Из корня клона команды укажите локальный путь к распакованному
-официальному пакету:
+Ниже **непроверенный на Windows** пример для интегрированной командной ветки.
+Из корня её клона укажите локальный путь к распакованному официальному пакету.
+Сначала создаётся отдельная копия, чтобы не изменять исходный пакет:
 
 ```powershell
 $Repo = (Get-Location).Path
-$Case = 'C:\path\to\beeline_case_participants'
+$SourceCase = 'C:\path\to\beeline_case_participants'
+$Case = Join-Path $env:TEMP ("beeline-t05-" + [guid]::NewGuid().ToString('N'))
+Copy-Item -LiteralPath $SourceCase -Destination $Case -Recurse
 py -3 -m venv "$Repo\.venv"
 $Python = "$Repo\.venv\Scripts\python.exe"
 & $Python -m pip install pandas numpy
 & $Python -m unittest evals.test_contract_checks -v
 & $Python "$Repo\evals\check_agent.py" --agent "$Repo\agent.py" --package "$Case" --seed 42
 & $Python "$Repo\evals\compare_agents.py" --baseline-agent "$Case\agent_template.py" --candidate-agent "$Repo\agent.py" --package "$Case" --runs 10
-& $Python "$Repo\evals\check_submission.py" --package "$Case" --agent "$Repo\agent.py" --strategy "$Repo\strategy"
+& $Python "$Repo\evals\check_submission.py" --package "$SourceCase" --agent "$Repo\agent.py" --strategy "$Repo\strategy"
 ```
 
-Для официальных команд сначала скопируйте только собственный код в отдельную
-локальную копию распакованного пакета. Не перезаписывайте рабочие файлы других
-участников и их финальный `submission.csv`:
+Для официальных команд скопируйте собственный код в `$Case`. Не
+перезаписывайте рабочие файлы других участников и их финальный `submission.csv`:
 
 ```powershell
 Copy-Item "$Repo\agent.py" "$Case\agent.py" -Force
