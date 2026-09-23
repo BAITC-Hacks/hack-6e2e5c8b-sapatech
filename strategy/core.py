@@ -166,11 +166,15 @@ def _estimate(candidate, channel, channels, observations):
     mean = 0.1 * candidate["prior_change_ratio"] * multiplier
     precision = 1 / 0.15 ** 2
     weighted = mean * precision
+    pooled = defaultdict(lambda: [0, 0.0])
     for source, n, ratio in observations.get(candidate["candidate_id"], []):
-        if source not in channels:
-            continue
+        if source in channels:
+            pooled[source][0] += n
+            pooled[source][1] += n * ratio
+    for source, (n, total) in pooled.items():
+        ratio = total / n
         factor = multiplier / channels[source][1]
-        # Positive extrapolation is capped for unknown conversion saturation.
+        # Transfer error is shared by repeats; more source pilots cannot erase it.
         if ratio >= 0:
             factor = min(factor, 1.5)
         variance = PILOT_STD ** 2 / n * factor ** 2
@@ -213,9 +217,9 @@ def choose_pilot(profile, tariffs, channels, candidates, observations, resources
     for candidate in candidates:
         cohort_trials[json.dumps(candidate["filters"], sort_keys=True)] += len(observed.get(candidate["candidate_id"], []))
     positions = _candidate_positions(profile, candidates)
-    # Reserve the second half of the official pilot allowance for confirmation.
-    # This counters selection bias from choosing the noisiest of many one-off pilots.
-    confirming = sum(len(rows) for rows in observed.values()) >= 10
+    # Use at most eight initial pilots before prioritizing repeated evidence.
+    # Four full samples halve the sampling error of a single 200-contact pilot.
+    confirming = sum(len(rows) for rows in observed.values()) >= 8
     choices, confirmations = [], []
     for candidate in candidates:
         size = len(positions[candidate["candidate_id"]])
@@ -224,7 +228,7 @@ def choose_pilot(profile, tariffs, channels, candidates, observations, resources
         evidence = observed.get(candidate["candidate_id"], [])
         n_seen = sum(n for _, n, _ in evidence)
         mean, error = _estimate(candidate, channel, channels, observed)
-        if n_seen >= 600 or (evidence and mean + 1.64 * error <= 0):
+        if n_seen >= 800 or (evidence and mean + 1.64 * error <= 0):
             continue
         arpu = max(candidate["audience_arpu_sum"], 0) * min(5000 / size, 1)
         diversity = 1 + cohort_trials[json.dumps(candidate["filters"], sort_keys=True)]
@@ -232,7 +236,7 @@ def choose_pilot(profile, tariffs, channels, candidates, observations, resources
         n = min(200, size, available)
         if n >= 10:
             choices.append((-score, candidate["candidate_id"], candidate, int(n)))
-            if evidence and mean > 0 and n_seen < 400:
+            if evidence and mean > 0 and n_seen < 800:
                 confirmation_score = arpu * (mean + error)
                 confirmations.append((-confirmation_score, candidate["candidate_id"], candidate, int(n)))
     if confirming and confirmations:
