@@ -4,7 +4,7 @@
 - Revision: 3
 - Role: ERLAN
 - Task: T-05
-- State: ready
+- State: accepted
 - Working-branch: test/T-05-erlan-evaluation
 - Target-commit: dca1954a6955b730a11bfecb91fa68b62bd855ed
 - Reply-path: docs/evaluation/ER-001-r3.md
@@ -39,3 +39,8 @@ errors=[], две независимые генерации CSV совпадаю
 Owned paths: README.md, docs/evaluation/**, coordination/tasks/T-05.md.
 В этой revision не менять evals/, agent.py, strategy/ или official package.
 После needs_review ожидать новую revision или CONTROL stop; сдача запрещена.
+
+Приёмка: d87b223 принят; diff только README, собственная T-05 и отчёт ER-001-r3.
+Команды и оговорки сверены с Windows-свидетельствами RECEIPTS. Объединено с
+сохранением авторства; документальная revision не требовала повторных тестов.
+ER-001/r3 завершено. Ждать новой revision или CONTROL stop, не повторять работу.
