@@ -10,7 +10,7 @@
 через публичный env и возвращает 1–10 кампаний. Только он изменяет `agent.py`.
 `make_submission.py` генерирует CSV отдельно; `act` не пишет submission.
 
-Доступны публичные `env.profile`, `env.tariffs`, `env.channels`, счётчики бюджета,
+Доступны публичные `env.customer_profile`, `env.tariffs`, `env.channels`, счётчики бюджета,
 контактов и пилотов, `pilot_history` и `run_pilot`. Закрытые эффекты не извлекаются.
 
 ## Интерфейс ядра Бауыржана
@@ -23,7 +23,9 @@ def choose_pilot(profile, tariffs, channels, candidates, observations, resources
 def select_campaigns(profile, tariffs, channels, candidates, observations, resources) -> list[dict]: ...
 ```
 
-- `profile`, `tariffs`, `history`: pandas.DataFrame официального формата.
+- `profile = env.customer_profile`, `tariffs = env.tariffs`, `history`:
+  pandas.DataFrame официального формата. Имя profile — локальный аргумент ядра,
+  атрибута env.profile в официальном пакете нет.
 - `history`: `data/change_tariff.csv`; при отсутствии — пустой DataFrame.
 - `channels`: публичный `env.channels`, без переименования ключей/полей пакета.
 - Функции синхронные, детерминированные при одинаковых входах, без изменения входов.

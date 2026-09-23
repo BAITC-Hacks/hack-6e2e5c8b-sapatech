@@ -248,6 +248,7 @@ The agent must still complete successfully when the optional API call fails.
 - **Official initial commit:** `e1a99ae3d47398c67fdc9c4849e983e487a4fb71`
 - **Current phase:** case intake and implementation planning
 - **Working now:** project instructions and case contract
+- **Implementation handoff:** see `PLAN.md` and named instructions in `coordination/people/`; Бауыржан can start from first T-02 commit `580f1eb`.
 - **Not implemented:** starter kit import, `agent.py`, evaluation baseline, optimized strategy, submission artifact
 
 ## Current priorities
