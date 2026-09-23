@@ -10,7 +10,10 @@
 - `check_agent.py` запускает агента на mock-среде или stub и выводит
   агрегированный JSON. `--feedback-check` использует ответы +0.5 и -0.5.
 - `compare_agents.py` прогоняет два агента на одинаковых seed официальным
-  `local_eval.evaluate_agent` и сводит net ARPU, расходы и время.
+  `local_eval.evaluate_agent`, до sanitizer сохраняет ошибки исходного ответа
+  по каждому seed и сводит net ARPU, расходы, время агента и полное время.
+  Код 1 означает незавершённый прогон, предупреждение evaluator или ошибку
+  raw-контракта, даже если score вычислен.
 - `check_submission.py` дважды запускает официальный `make_submission.py` в
   отдельной временной копии без `OPENAI_API_KEY` и сравнивает SHA-256 CSV.
 - `test_contract_checks.py` проверяет сам валидатор на нормальном и ошибочном
