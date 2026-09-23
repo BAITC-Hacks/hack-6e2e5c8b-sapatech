@@ -4,7 +4,7 @@ Last updated: 2026-09-23
 
 ## Current decision
 
-- **Status:** T-03 started; official template baseline measured; strategy integration pending.
+- **Status:** T-03 orchestration implemented and tested; published T-04 core still pending.
 - **Track:** 04 Telecommunications.
 - **Case owner:** Beeline.
 - **Official case:** Beeline Tariff Marketing Campaigns Case.
@@ -227,20 +227,27 @@ Two CSV generations had identical SHA256
 Local logs: `jobs/t03-baseline/` (ignored). These are mock baseline results,
 not a prediction of hidden judging quality.
 
-## Original starter commands
+## Agent validation commands
 
-Run these commands only after the participant package has been copied or extracted into the local working directory. The supplied Python files import only `pandas` and `numpy`.
+Run after local package installation. Do not copy agent_template.py over agent.py.
+Until strategy/ is available, agent.py explicitly uses the official template;
+this is a temporary baseline, not the finished strategy. Inspect Agent.diagnostics
+for mode, errors, pilot observations, final costs and runtime.
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install pandas numpy
-
-cp agent_template.py agent.py
+```powershell
+python -m unittest discover -s scripts -p test_agent.py -v
 python local_eval.py
 python local_eval.py --runs 10
 python make_submission.py
 ```
+
+T-03 validation: 11 focused orchestration tests pass. Wrapper runs seeds 0–9
+under 0.28 seconds per evaluation in the current environment; seed 3 needs
+pilot recovery because the official template returns no final campaigns.
+Seed-42 CSV remains byte-identical to the template baseline. No final submission
+is committed until the real strategy is integrated and checked. A cooperative
+270-second timer stops new pilots with 15 seconds reserved for selection;
+it cannot interrupt a hanging synchronous strategy function (ADR-004).
 
 Do not commit API keys, `.env`, the participant ZIP, or organizer datasets.
 
@@ -273,9 +280,9 @@ The agent must still complete successfully when the optional API call fails.
 - **Stable branch:** `main`
 - **Official initial commit:** `e1a99ae3d47398c67fdc9c4849e983e487a4fb71`
 - **Current phase:** T-03 implementation
-- **Working now:** local setup and measured official baseline; orchestration in progress
+- **Working now:** agent orchestration, official template fallback and 11 focused checks
 - **Implementation handoff:** see `PLAN.md` and named instructions in `coordination/people/`; Бауыржан can start from first T-02 commit `580f1eb`.
-- **Not implemented:** integrated `agent.py`, optimized strategy, final submission artifact
+- **Pending dependencies:** published optimized strategy, full integrated evaluation, final submission artifact
 
 ## Current priorities
 
