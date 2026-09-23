@@ -20,6 +20,7 @@ if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from evals.check_agent import load_agent
+from evals.contract_checks import check_raw_answer
 
 
 def evaluate(path: Path, package_dir: Path, seeds: range) -> dict:
@@ -32,10 +33,27 @@ def evaluate(path: Path, package_dir: Path, seeds: range) -> dict:
         from local_eval import evaluate_agent
         for seed in seeds:
             agent = load_agent(path)
+            raw_audit = {}
+
+            class AuditedAgent:
+                def act(self, env):
+                    act_start = perf_counter()
+                    raw = agent.act(env)
+                    raw_audit["agent_runtime_seconds"] = round(
+                        perf_counter() - act_start, 3
+                    )
+                    checked = check_raw_answer(raw, env)
+                    raw_audit["raw_campaign_count"] = (
+                        len(raw) if isinstance(raw, list) else None
+                    )
+                    raw_audit["raw_errors"] = checked.errors
+                    raw_audit["raw_warnings"] = checked.warnings
+                    return raw
+
             output = io.StringIO()
             start = perf_counter()
             with redirect_stdout(output):
-                result = evaluate_agent(agent, seed=seed, verbose=False)
+                result = evaluate_agent(AuditedAgent(), seed=seed, verbose=False)
             runtime = perf_counter() - start
             messages = output.getvalue()
             rows.append({
@@ -45,6 +63,10 @@ def evaluate(path: Path, package_dir: Path, seeds: range) -> dict:
                 "total_contacts": result["total_contacts"] if result else None,
                 "pilots": result["n_pilots"] if result else None,
                 "runtime_seconds": round(runtime, 3),
+                "agent_runtime_seconds": raw_audit.get("agent_runtime_seconds"),
+                "raw_campaign_count": raw_audit.get("raw_campaign_count"),
+                "raw_errors": raw_audit.get("raw_errors", ["Agent.act did not return"]),
+                "raw_warnings": raw_audit.get("raw_warnings", []),
                 "warnings": [line for line in messages.splitlines() if "[!]" in line],
             })
     finally:
@@ -67,6 +89,11 @@ def evaluate(path: Path, package_dir: Path, seeds: range) -> dict:
             "mean_pilots": statistics.mean(row["pilots"] for row in good) if good else None,
             "mean_runtime_seconds": statistics.mean(row["runtime_seconds"] for row in rows),
             "maximum_runtime_seconds": max(row["runtime_seconds"] for row in rows),
+            "mean_agent_runtime_seconds": statistics.mean(
+                row["agent_runtime_seconds"] for row in rows
+                if row["agent_runtime_seconds"] is not None
+            ) if any(row["agent_runtime_seconds"] is not None for row in rows) else None,
+            "raw_error_runs": sum(bool(row["raw_errors"]) for row in rows),
             "warning_runs": sum(bool(row["warnings"]) for row in rows),
         },
     }
@@ -99,7 +126,8 @@ def main() -> int:
     )
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return int(b["completed"] != args.runs or c["completed"] != args.runs or
-               b["warning_runs"] > 0 or c["warning_runs"] > 0)
+               b["warning_runs"] > 0 or c["warning_runs"] > 0 or
+               b["raw_error_runs"] > 0 or c["raw_error_runs"] > 0)
 
 
 if __name__ == "__main__":
