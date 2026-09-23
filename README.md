@@ -59,6 +59,8 @@ python evals/check_submission.py --package <package> --agent <package>/agent_tem
 кампаний, хотя evaluator продолжает считать проведённые пилоты.
 Агрегированные результаты записаны в
 [baseline-отчёте](docs/evaluation/baseline.md).
+Черновой [пятиминутный демо-сценарий](docs/evaluation/demo.md) заменяет
+заполнители только после проверки интегрированного коммита.
 
 ## Подготовка итогового запуска в PowerShell
 
