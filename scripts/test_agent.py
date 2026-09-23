@@ -5,6 +5,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from time import monotonic
 import unittest
+from unittest.mock import patch
 
 import pandas as pd
 
@@ -93,6 +94,16 @@ class AgentTests(unittest.TestCase):
         positive = Agent(strategy=Policy()).act(PublicEnvironment(lift=0.2))
         negative = Agent(strategy=Policy()).act(PublicEnvironment(lift=-0.2))
         self.assertNotEqual(positive, negative)
+
+    def test_default_history_uses_separate_official_package_directory(self):
+        with TemporaryDirectory() as directory:
+            package = Path(directory)
+            (package / "data").mkdir()
+            (package / "data/change_tariff.csv").write_text("before,after\n10,12\n", encoding="utf-8")
+            with patch("agent.Path.cwd", return_value=package):
+                history = Agent(strategy=Policy())._history()
+        self.assertEqual(list(history.columns), ["before", "after"])
+        self.assertEqual(len(history), 1)
 
     def test_actual_small_pilot_and_missing_history(self):
         policy = Policy()

@@ -187,7 +187,7 @@ class _PilotSession:
 class Agent:
     def __init__(self, strategy=None, history_path=None, time_limit_seconds=270):
         self._strategy = strategy
-        self.history_path = Path(history_path) if history_path is not None else ROOT / "data/change_tariff.csv"
+        self.history_path = Path(history_path) if history_path is not None else None
         self.time_limit_seconds = min(270.0, max(1.0, float(time_limit_seconds)))
         self.diagnostics: dict = {}
 
@@ -195,8 +195,14 @@ class Agent:
         self.diagnostics["errors"].append({"stage": stage, "type": type(error).__name__, "message": str(error)[:300]})
 
     def _history(self):
+        # Official runners read package data relative to cwd, which may differ
+        # from the imported agent's directory (for example evals/check_agent.py).
+        package_history = Path.cwd() / "data/change_tariff.csv"
+        history_path = self.history_path
+        if history_path is None:
+            history_path = package_history if package_history.is_file() else ROOT / "data/change_tariff.csv"
         try:
-            return pd.read_csv(self.history_path)
+            return pd.read_csv(history_path)
         except (OSError, ValueError) as error:
             self._error("history", error)
             return pd.DataFrame()

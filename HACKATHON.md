@@ -4,7 +4,7 @@ Last updated: 2026-09-23
 
 ## Current decision
 
-- **Status:** T-03 orchestration implemented and tested; published T-04 core still pending.
+- **Status:** T-03 and T-04 integrated; T-05 checks imported, evaluator semantics and final README alignment pending.
 - **Track:** 04 Telecommunications.
 - **Case owner:** Beeline.
 - **Official case:** Beeline Tariff Marketing Campaigns Case.
@@ -249,6 +249,27 @@ is committed until the real strategy is integrated and checked. A cooperative
 270-second timer stops new pilots with 15 seconds reserved for selection;
 it cannot interrupt a hanging synchronous strategy function (ADR-004).
 
+### Integrated checkpoint, 14:18 UTC+05
+
+The paragraph above describes the temporary template stage. The current agent
+uses the real strategy from Бауыржан `cca147b`; Ерлан's checks through `810e672`
+are merged with their authorship preserved. Current focused test counts:
+12 orchestration tests, 14 strategy tests and 8 evaluator tests passed.
+
+Integrated seeds 0–9: mean net **+533,014.48**, median **+575,915.02**,
+minimum **-282,662.44**, maximum **+943,807.80**, 9/10 positive. Measured full
+evaluation runtime 3.67 s average / 3.88 s maximum on this Windows environment.
+Seed 42: **+327,917.04**, 15,000 total contacts, 99,998 cost, 20 pilots and
+10 final campaigns; diagnostics mode=strategy, no fallback/errors.
+Two official CSV generations, also repeated in a disposable package without an
+API key, matched SHA256 `bdcc64500857306de26e459acd4bc266da0e9a696b2a1ab3c416163517a7c91c`.
+The candidate CSV is preserved locally in `jobs/t03-integrated/submission-seed42.csv`.
+
+Open T-05 issue: raw checker reports legal scorer caps as errors (ADR-005).
+Seed42 flags campaigns 9/10; seed0 flags campaigns 2/7 while actual costs and
+contacts remain within limits. Ерлан owns this correction and README alignment.
+Final acceptance and submission are not claimed until these are resolved.
+
 Do not commit API keys, `.env`, the participant ZIP, or organizer datasets.
 
 ## Required configuration
@@ -280,9 +301,9 @@ The agent must still complete successfully when the optional API call fails.
 - **Stable branch:** `main`
 - **Official initial commit:** `e1a99ae3d47398c67fdc9c4849e983e487a4fb71`
 - **Current phase:** T-03 implementation
-- **Working now:** agent orchestration, official template fallback and 11 focused checks
+- **Working now:** integrated strategy, pilot orchestration and independent verification
 - **Implementation handoff:** see `PLAN.md` and named instructions in `coordination/people/`; Бауыржан can start from first T-02 commit `580f1eb`.
-- **Pending dependencies:** published optimized strategy, full integrated evaluation, final submission artifact
+- **Pending dependencies:** T-05 cap semantics and current README, final submission artifact
 
 ## Current priorities
 
