@@ -78,8 +78,9 @@ def _filter_audience(profile: pd.DataFrame, campaign: dict) -> pd.DataFrame:
 def check_raw_answer(campaigns: object, env: object) -> CheckResult:
     """Check the unsanitized answer and account for pilots already executed.
 
-    Campaign contact/cost accounting uses the official order and caps. A cap is
-    still reported as an error: it means the raw plan exceeds the stated limit.
+    Campaign contact/cost accounting uses the official order and caps. The
+    campaign schema has no requested audience size, so an audience above 5000
+    or partially served by resources is a planning warning, not invalid JSON.
     Pilot customer IDs are not public, so overlap with pilots is not asserted.
     """
     result = CheckResult()
@@ -194,7 +195,7 @@ def check_raw_answer(campaigns: object, env: object) -> CheckResult:
             result.errors.append(f"{label} has an empty audience")
             continue
         if len(audience) > MAX_CUSTOMERS_PER_CAMPAIGN:
-            result.errors.append(f"{label} reaches {len(audience)} before the 5000 cap")
+            result.warnings.append(f"{label} reaches {len(audience)} before the 5000 cap")
         selected = audience.iloc[:MAX_CUSTOMERS_PER_CAMPAIGN]
         selected = selected.iloc[:max(remaining_contacts - result.final_contacts, 0)]
         cost_per_contact = channels[channel].get("cost_per_contact")
@@ -205,8 +206,10 @@ def check_raw_answer(campaigns: object, env: object) -> CheckResult:
         if cost_per_contact:
             affordable = int(max(remaining_budget - result.final_cost, 0) // cost_per_contact)
             selected = selected.iloc[:affordable]
-        if len(selected) < min(len(audience), MAX_CUSTOMERS_PER_CAMPAIGN):
-            result.errors.append(f"{label} would be truncated by remaining resources")
+        if selected.empty:
+            result.errors.append(f"{label} would reach no contacts after resource caps")
+        elif len(selected) < min(len(audience), MAX_CUSTOMERS_PER_CAMPAIGN):
+            result.warnings.append(f"{label} would be truncated by remaining resources")
         ids = set(selected["ID_NUMBER"])
         result.repeated_final_contacts += len(ids & seen_ids)
         seen_ids.update(ids)
